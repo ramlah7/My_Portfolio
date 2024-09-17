@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #292747;
+    color: #333;
+}
+
+/* Container to center the content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header section styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Header content layout */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Header text styles */
+.header-content p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/* Header image styles */
+.header-content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* Main content section */
+main {
+    padding: 20px;
+}
+
+/* Section styles */
+.section {
+    background-color: #b2c0c9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+/* List styles */
+.section ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Footer content styles */
+.footer-content {
+    font-size: 18px;
+}
+
+.footer-content p {
+    margin-bottom: 5px;
+}
