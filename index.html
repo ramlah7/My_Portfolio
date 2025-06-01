@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>More actions
 <html lang="en">
 
 <head>
@@ -62,14 +62,14 @@
       flex: 1;
     }
 
-    $1
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 0 transparent;
-}
-.section:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(214, 40, 40, 0.6);
-}
+    .section {
+      background-color: #111111;
+      border-left: 5px solid var(--accent);
+      padding: 30px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      color: var(--text);
+    }
 
     h1, h2 {
       color: var(--accent);
@@ -103,6 +103,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
+<body>
 <body onload="AOS.init();">
   <style>
     .slideshow {
@@ -118,145 +119,55 @@
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#platforms">Platforms</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#leadership">Leadership</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <header>
-    <h1>Ramlah Munir</h1>
-    <p>Bioinformatics Student | Developer | Problem Solver</p>
-    <img src="profile-pic.png" alt="Profile Picture" width="120" style="border-radius:50%; margin-top:20px; border: 3px solid white;">
-  </header>
-
-  <div class="container">
-    
-
-
-
-<section class="section" style="border-left: 5px solid var(--accent); padding-left: 20px; margin-top: 40px;" id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>Python, C++, Java, HTML, CSS, JavaScript</li>
-        <li>SQL, Git, Linux, Bash</li>
-        <li>VS Code, PyCharm, MySQL, Qt Creator</li>
+@@ -142,12 +159,13 @@
       </ul>
     </section>
 
-    <section class="section" style="border-left: 5px solid var(--accent); padding-left: 20px; margin-top: 40px;" id="experience">
-      <h2>Work Experience</h2>
+    <section class="section" id="certificates">
+    <section class="section" id="certificates" data-aos="fade-up">
+      <h2>Academic Certificates</h2>
       <ul>
-        <li>Intern - Auth2X Security Platform (Biometric authentication)</li>
-        <li>Developer - MindMate Mental Health Chatbot (NLP + PyQt)</li>
+        <li>Python for Data Science – HackerRank</li>
+        <li>Problem Solving – HackerRank</li>
       </ul>
+      <div class="slideshow certificate-carousel">
+        <div><img src="python_certificate.jpg" alt="Python Certificate"></div>
+        <div><img src="problem_solving.jpg" alt="Problem Solving"></div>
+        <div><img src="datascience.jpg" alt="Data Science"></div>
+      </div>
     </section>
 
-    <section class="section" style="border-left: 5px solid var(--accent); padding-left: 20px; margin-top: 40px;" id="platforms">
-      <h2>Competitive Programming & Platforms</h2>
+    <section class="section" id="leadership">
+@@ -161,12 +179,22 @@
+
+    <section class="section" id="projects">
+      <h2>Projects</h2>
       <ul>
-        <li><strong>LeetCode:</strong> 130+ problems solved, Top 12% Global</li>
-        <li><strong>GitHub:</strong> Open-source contributor, personal project repositories</li>
-        <li><strong>CodeDex:</strong> Completed modules in Python, JavaScript, and Web Dev tracks</li>
+        <li>Fingerprint + Face Authentication System (Python, MySQL)</li>
+        <li>MindMate Mental Health Chatbot (DialoGPT, PyQt5)</li>
+        <li>FLT3-ITD Gene Explorer (Bioinformatics Tool)</li>
+        <li>Personal Portfolio Website (This one!)</li>
       </ul>
+      <div class="project" data-aos="fade-up">
+        <h3>Fingerprint + Face Authentication</h3>
+        <p>Biometric system using Python and MySQL</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>MindMate Mental Health Chatbot</h3>
+        <p>Built with DialoGPT and PyQt5, offers emotional support</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>FLT3-ITD Gene Explorer</h3>
+        <p>Bioinformatics tool for exploring FLT3-ITD mutations</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>Portfolio Website</h3>
+        <p>This animated, styled resume site</p>
+      </div>
     </section>
-
-    <section class="section" style="border-left: 5px solid var(--accent); padding-left: 20px; margin-top: 40px;" id="certificates" data-aos="fade-up">
-  <h2>Academic Certificates</h2>
-  <div class="slideshow certificate-carousel">
-    <div><img src="cert1.jpg" alt="Certificate 1"><p>Python for Beginners - HackerRank</p></div>
-    <div><img src="cert2.jpg" alt="Certificate 2"><p>Problem Solving Intermediate - HackerRank</p></div>
-    <div><img src="cert3.jpg" alt="Certificate 3"><p>Bioinformatics Data Science - Coursera</p></div>
-    <div><img src="cert4.jpg" alt="Certificate 4"><p>Machine Learning Basics - EdX</p></div>
-    <div><img src="cert5.jpg" alt="Certificate 5"><p>Git and GitHub - Google Digital Garage</p></div>
-    <div><img src="cert6.jpg" alt="Certificate 6"><p>Advanced SQL - CodeAcademy</p></div>
-    <div><img src="cert7.jpg" alt="Certificate 7"><p>Data Visualization - Coursera</p></div>
-    <div><img src="cert8.jpg" alt="Certificate 8"><p>Cybersecurity Fundamentals - IBM SkillsBuild</p></div>
-    <div><img src="cert9.jpg" alt="Certificate 9"><p>OOP in C++ - Sololearn</p></div>
-    <div><img src="cert10.jpg" alt="Certificate 10"><p>Web Development Basics - Meta</p></div>
-  </section>
-
-    <section class="section" style="border-left: 5px solid var(--accent); padding-left: 20px; margin-top: 40px;" id="leadership">
-      <h2>Volunteer & Leadership</h2>
-      <ul>
-        <li>Team Lead – ACM COMSATS Wah Hackathon</li>
-        <li>Volunteer – GirlUp Lahore</li>
-        <li>Events Organizer – COMSATS Cultural & Sports Society</li>
-      </ul>
-    </section>
-
-    <section class="section project" id="project1" data-aos="fade-up">
-  <h2>Project 1: Fingerprint + Face Authentication</h2>
-  <div class="slideshow project-carousel-1">
-    <div><img src="fp1.jpg" alt="FP Image 1"></div>
-    <div><img src="fp2.jpg" alt="FP Image 2"></div>
-    <div><img src="fp3.jpg" alt="FP Image 3"></div>
-    <div><img src="fp4.jpg" alt="FP Image 4"></div>
-    <div><img src="fp5.jpg" alt="FP Image 5"></div>
-  </div>
-</section>
-
-<section class="section project" id="project2" data-aos="fade-up">
-  <h2>Project 2: MindMate Chatbot</h2>
-  <div class="slideshow project-carousel-2">
-    <div><img src="mm1.jpg" alt="MM Image 1"></div>
-    <div><img src="mm2.jpg" alt="MM Image 2"></div>
-    <div><img src="mm3.jpg" alt="MM Image 3"></div>
-    <div><img src="mm4.jpg" alt="MM Image 4"></div>
-    <div><img src="mm5.jpg" alt="MM Image 5"></div>
-  </div>
-</section>
-
-<section class="section project" id="project3" data-aos="fade-up">
-  <h2>Project 3: FLT3-ITD Gene Explorer</h2>
-  <div class="slideshow project-carousel-3">
-    <div><img src="ge1.jpg" alt="GE Image 1"></div>
-    <div><img src="ge2.jpg" alt="GE Image 2"></div>
-    <div><img src="ge3.jpg" alt="GE Image 3"></div>
-    <div><img src="ge4.jpg" alt="GE Image 4"></div>
-    <div><img src="ge5.jpg" alt="GE Image 5"></div>
-  </div>
-</section>
-
-<section class="section project" id="project4" data-aos="fade-up">
-  <h2>Project 4: Portfolio Website</h2>
-  <div class="slideshow project-carousel-4">
-    <div><img src="pw1.jpg" alt="PW Image 1"></div>
-    <div><img src="pw2.jpg" alt="PW Image 2"></div>
-    <div><img src="pw3.jpg" alt="PW Image 3"></div>
-    <div><img src="pw4.jpg" alt="PW Image 4"></div>
-    <div><img src="pw5.jpg" alt="PW Image 5"></div>
-  </div>
-</section>
-
-<section class="section project" id="project5" data-aos="fade-up">
-  <h2>Project 5: TF Analysis Tool</h2>
-  <div class="slideshow project-carousel-5">
-    <div><img src="tf1.jpg" alt="TF Image 1"></div>
-    <div><img src="tf2.jpg" alt="TF Image 2"></div>
-    <div><img src="tf3.jpg" alt="TF Image 3"></div>
-    <div><img src="tf4.jpg" alt="TF Image 4"></div>
-    <div><img src="tf5.jpg" alt="TF Image 5"></div>
-  </div>
-</section>
-
-<section class="section project" id="project6" data-aos="fade-up">
-  <h2>Project 6: RedactedVault Secure Platform</h2>
-  <div class="slideshow project-carousel-6">
-    <div><img src="rv1.jpg" alt="RV Image 1"></div>
-    <div><img src="rv2.jpg" alt="RV Image 2"></div>
-    <div><img src="rv3.jpg" alt="RV Image 3"></div>
-    <div><img src="rv4.jpg" alt="RV Image 4"></div>
-    <div><img src="rv5.jpg" alt="RV Image 5"></div>
-  </div>
-</section>
   </div>
 
-  <footer id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: ramlahmunir786@gmail.com</p>
+@@ -176,6 +204,19 @@
     <p>Phone: +92 317 5018310</p>
     <p><a href="https://www.linkedin.com/in/ramlahmunir" style="color: var(--accent);">LinkedIn</a></p>
   </footer>
@@ -273,29 +184,6 @@
       });
     });
   </script>
-<script>
-  $(document).ready(function(){
-    $('.certificate-carousel').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      adaptiveHeight: true,
-      autoplay: true,
-      autoplaySpeed: 3000
-    });
-
-    $('.project-carousel-1, .project-carousel-2, .project-carousel-3, .project-carousel-4, .project-carousel-5, .project-carousel-6').slick({
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      adaptiveHeight: true,
-      autoplay: true,
-      autoplaySpeed: 3000
-    });
-  });
-</script>
 </body>
 
 </html>
