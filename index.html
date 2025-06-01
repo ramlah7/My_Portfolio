@@ -4,268 +4,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramlah Munir | Developer Portfolio</title>
+  <title>Ramlah Munir | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
     :root {
-      --primary: #0a0f1c;
-      --secondary: #101926;
-      --accent: #00d9ff;
-      --background: #0b0d17;
-      --text: #e5f2ff;
-      --neon-pink: #ff4fc3;
-      --neon-purple: #a64eff;
-      --neon-blue: #00d9ff;
-      --neon-green: #32ff9f;
+      --primary: #ffffff;
+      --secondary: #000000;
+      --accent: #d62828;
+      --background: #fefefe;
+      --text: #111111;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
     body {
+      background-color: var(--background);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      background-color: var(--background);
-      color: var(--text);
-      scroll-behavior: smooth;
-      font-smooth: always;
-      -webkit-font-smoothing: antialiased;
-      margin: 0;
     }
 
-    header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      margin-top: 20px;
+    header {
+      background-color: var(--accent);
+      color: var(--secondary);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: var(--accent);
+      text-align: center;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
+      flex: 1;
     }
 
     .section {
-      background-color: #111927;
-      margin: 20px 0;
+      background-color: #fff;
+      border-left: 5px solid var(--accent);
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 25px var(--neon-blue);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px var(--neon-purple);
-    }
-
-    .section h2 {
-      margin-bottom: 15px;
+    h1, h2 {
       color: var(--accent);
-      text-shadow: 0 0 10px var(--neon-blue);
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    ul li {
-      padding: 6px 0;
-    }
-
-    .slideshow {
-      margin-top: 20px;
-    }
-
-    .slideshow img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
     }
 
     footer {
-      background-color: var(--primary);
+      background-color: var(--secondary);
       color: var(--accent);
-      padding: 40px 20px;
+      padding: 30px;
       text-align: center;
-      text-shadow: 0 0 10px var(--neon-blue);
-      border-top: 2px solid var(--accent);
-    }
-
-    .social-icons a {
-      color: white;
-      font-size: 22px;
-      margin: 0 15px;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: var(--accent);
-      transform: scale(1.3);
-    }
-
-    @media (max-width: 768px) {
-      .slideshow img {
-        width: 100%;
-      }
-    }
-      @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-      }
-      100% {
-        box-shadow: 0 0 25px var(--accent), 0 0 40px var(--accent);
-      }
     }
   </style>
 </head>
 
 <body>
-  <nav style="position:sticky;top:0;background-color:var(--primary);padding:10px;text-align:center;z-index:999;">
-  <a href="#contact" style="color:var(--accent);margin:0 15px;text-decoration:none;font-weight:bold;">Contact Me</a>
-</nav>
-  <main class="container" style="flex: 1 1 auto;">
-    <header data-aos="fade-down" style="text-align:center; padding: 50px 20px; color: var(--accent); text-shadow: 0 0 15px var(--accent); background-color: var(--primary);"
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
     <h1>Ramlah Munir</h1>
-    <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
-    <img src="profile-pic (4).png" alt="Profile Picture">
+    <p>Bioinformatics Student | Developer | Problem Solver</p>
+    <img src="profile-pic.png" alt="Profile Picture" width="120" style="border-radius:50%; margin-top:20px; border: 3px solid white;">
   </header>
 
-  
-    <section class="section" data-aos="fade-up">
-      <h2>Leadership Highlights</h2>
+  <div class="container">
+    <section class="section" id="skills">
+      <h2>Skills</h2>
       <ul>
-        <li>Team Lead at COMSATS Hackathon 2024</li>
-        <li>Organizer - ACM Codefest Wah Chapter</li>
-        <li>Volunteer Trainer - Digital Literacy Drive</li>
+        <li>Python, C++, Java, HTML, CSS, JavaScript</li>
+        <li>SQL, Git, Linux, Bash</li>
+        <li>VS Code, PyCharm, MySQL, Qt Creator</li>
       </ul>
     </section>
 
-    <section class="section" data-aos="fade-left">
-      <h2>Project 1 - Auth2X Biometric System</h2>
-      <p>A fingerprint and face-based authentication system using Python, MySQL, and Tkinter GUI.</p>
-    </section>
-    <section class="section" data-aos="fade-right">
-      <h2>Project 2 - MindMate AI Chatbot</h2>
-      <p>A mental health chatbot using hybrid NLP (DialoGPT, BERT), GUI, and emotion recognition.</p>
-    </section>
-    <section class="section" data-aos="fade-left">
-      <h2>Project 3 - FLT3-ITD Gene Explorer</h2>
-      <p>A research-oriented bioinformatics tool to explore mutation-based gene expression signatures.</p>
-    </section>
-    <section class="section" data-aos="fade-right">
-      <h2>Project 4 - Portfolio Website</h2>
-      <p>This portfolio you're viewing now. Designed using HTML, CSS, JS animations, and carousel libraries.</p>
-    </section>
-
-    <section class="section" data-aos="zoom-in">
-      <h2>LeetCode Stats</h2>
+    <section class="section" id="experience">
+      <h2>Work Experience</h2>
       <ul>
-        <li>Problems Solved: 130+</li>
-        <li>Languages: Python, Java, C++</li>
-        <li>Ranking: Top 12% Global</li>
+        <li>Intern - Auth2X Security Platform (Biometric authentication)</li>
+        <li>Developer - MindMate Mental Health Chatbot (NLP + PyQt)</li>
       </ul>
     </section>
 
-    <section class="section" data-aos="fade-up">
-      <h2>Tools & Frameworks</h2>
+    <section class="section" id="platforms">
+      <h2>Competitive Programming & Platforms</h2>
       <ul>
-        <li>PyCharm, VS Code, NetBeans</li>
-        <li>MySQL, Qt Creator, GitHub, Figma</li>
-        <li>Postman, XAMPP, Oracle DB</li>
+        <li><strong>LeetCode:</strong> 130+ problems solved, Top 12% Global</li>
+        <li><strong>GitHub:</strong> Open-source contributor, personal project repositories</li>
+        <li><strong>CodeDex:</strong> Completed modules in Python, JavaScript, and Web Dev tracks</li>
       </ul>
     </section>
 
-    <section class="section" data-aos="fade-up">
-      <h2>Programming Languages</h2>
+    <section class="section" id="certificates">
+      <h2>Academic Certificates</h2>
       <ul>
-        <li>Python, C++, JavaScript</li>
-        <li>SQL, Java, Bash</li>
-        <li>HTML5, CSS3</li>
+        <li>Python for Data Science – HackerRank</li>
+        <li>Problem Solving – HackerRank</li>
       </ul>
     </section>
 
-
-    <section class="section" data-aos="fade-up">
-      <h2>Academic Certifications</h2>
-      <div class="slideshow academic-certificates">
-        <div><img src="python_basic_certificate.jpg" alt="Python Certificate"></div>
-        <div><img src="problem_solving_certificate.jpg" alt="Problem Solving"></div>
-        <div><img src="data_science_intro.jpg" alt="Data Science"></div>
-        <!-- Add more academic certificates -->
-      </div>
+    <section class="section" id="leadership">
+      <h2>Volunteer & Leadership</h2>
+      <ul>
+        <li>Team Lead – ACM COMSATS Wah Hackathon</li>
+        <li>Volunteer – GirlUp Lahore</li>
+        <li>Events Organizer – COMSATS Cultural & Sports Society</li>
+      </ul>
     </section>
 
-    <section class="section" data-aos="fade-up">
-      <h2>Leadership & Volunteering</h2>
-      <div class="slideshow volunteer-certificates">
-        <div><img src="girlup_recommendation.jpg" alt="Girl Up"></div>
-        <div><img src="apsu_volunteer.jpg" alt="APSU"></div>
-        <div><img src="event_coordination.jpg" alt="Event Coordination"></div>
-        <!-- Add more volunteer/leadership certificates -->
-      </div>
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>Fingerprint + Face Authentication System (Python, MySQL)</li>
+        <li>MindMate Mental Health Chatbot (DialoGPT, PyQt5)</li>
+        <li>FLT3-ITD Gene Explorer (Bioinformatics Tool)</li>
+        <li>Personal Portfolio Website (This one!)</li>
+      </ul>
     </section>
-    <section class="section" data-aos="fade-up">
-      <h2>Featured Projects</h2>
-      <div class="slideshow project-slideshow">
-        <div><img src="project1.png" alt="Project 1"></div>
-        <div><img src="project2.png" alt="Project 2"></div>
-        <div><img src="project3.png" alt="Project 3"></div>
-        <div><img src="project4.png" alt="Project 4"></div>
-        <div><img src="project5.png" alt="Project 5"></div>
-        <div><img src="project6.png" alt="Project 6"></div>
-      </div>
-    </section>
-  </main>
-  <footer id="footer" style="margin-top:auto; background-color: var(--secondary); color: var(--accent); padding: 60px 20px; text-align: center; border-top: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent); animation: pulseGlow 3s infinite alternate;">
-    <h4 id="contact">Let's Connect</h4>
-    <div class="social-icons">
-      <a href="mailto:ramlahmunir786@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/ramlahmunir" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="tel:+923175018310"><i class="fas fa-phone"></i></a>
-    </div>
-    <p>&copy; 2025 Ramlah Munir. All rights reserved.</p>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1200 });
-    $(function () {
-      $('.project-slideshow').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: true,
-      });
-      $('.academic-certificates, .volunteer-certificates').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: false
-      });
-    });
-  </script>
+  </div>
+
+  <footer id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: ramlahmunir786@gmail.com</p>
+    <p>Phone: +92 317 5018310</p>
+    <p><a href="https://www.linkedin.com/in/ramlahmunir" style="color: var(--accent);">LinkedIn</a></p>
+  </footer>
 </body>
 
 </html>
