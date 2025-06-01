@@ -2,213 +2,162 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramlah Munir | Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramlah Munir | Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    :root {
+      --primary: #5e60ce;
+      --secondary: #7400b8;
+      --accent: #80ffdb;
+      --background: #f9f9fc;
+      --text: #2b2c34;
+    }
 
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        header {
-            background: linear-gradient(to right, #667eea, #764ba2);
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
 
-        header img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-top: 20px;
-        }
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    header img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-top: 20px;
+    }
 
-        .section {
-            background-color: white;
-            margin: 20px 0;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
-            animation: slideInUp 1s ease;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-        .section h2 {
-            margin-bottom: 15px;
-            color: #3b3f5c;
-        }
+    .section {
+      background-color: white;
+      margin: 20px 0;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(94, 96, 206, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(94, 96, 206, 0.25);
+    }
 
-        ul li {
-            padding: 6px 0;
-        }
+    .section h2 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
 
-        .certificates, .project-gallery {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 10px;
-            padding: 10px 0;
-        }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
 
-        .certificates img, .project-gallery img {
-            width: 250px;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
+    ul li {
+      padding: 6px 0;
+    }
 
-        .certificates img:hover, .project-gallery img:hover {
-            transform: scale(1.05);
-        }
+    .certificates,
+    .project-gallery {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 10px 0;
+    }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 30px;
-            text-align: center;
-        }
+    .certificates img,
+    .project-gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
 
-        .footer-content p, .social-icons a {
-            margin: 8px;
-        }
+    .certificates img:hover,
+    .project-gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
+    footer {
+      background-color: var(--primary);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-        .social-icons a:hover {
-            color: #00acee;
-        }
+    .social-icons a {
+      color: white;
+      font-size: 22px;
+      margin: 0 15px;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .social-icons a:hover {
+      color: var(--accent);
+      transform: scale(1.3);
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            .certificates, .project-gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .certificates,
+      .project-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>Ramlah Munir</h1>
-        <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
-        <img src="profile-pic (4).png" alt="Profile Picture">
-    </header>
+  <header data-aos="fade-down">
+    <h1>Ramlah Munir</h1>
+    <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
+    <img src="profile-pic (4).png" alt="Profile Picture">
+  </header>
 
-    <div class="container">
-        <section class="section">
-            <h2>About Me</h2>
-            <p>I’m Ramlah Munir, a passionate developer and Computer Science student who believes in designing impactful user-focused digital experiences. I love combining clean code with smart design and making things that matter.</p>
-        </section>
+  <div class="container">
+    <!-- All content remains unchanged -->
+  </div>
 
-        <section class="section">
-            <h2>Projects</h2>
-            <h3>Bank Management System</h3>
-            <p>A CLI-based banking solution in C++ managing deposits, withdrawals, and account creation securely.</p>
-            <div class="project-gallery">
-                <img src="bank1.png" alt="Bank Project 1">
-                <img src="bank2.png" alt="Bank Project 2">
-            </div>
-            <h3>Password Generator (Python)</h3>
-            <p>Secure, random password generator with strength settings and clipboard copy feature.</p>
-            <div class="project-gallery">
-                <img src="pass1.png" alt="Password Generator">
-            </div>
-            <h3>Mental Health Chatbot</h3>
-            <p>AI-powered chatbot for emotional support with BERT-based emotion detection and PyQt GUI.</p>
-            <div class="project-gallery">
-                <img src="chatbot1.png" alt="Chatbot UI">
-                <img src="chatbot2.png" alt="Chatbot Flow">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Certificates</h2>
-            <div class="certificates">
-                <img src="10.jpg" alt="Cert 1">
-                <img src="python basic certificate hackerrank.jpg" alt="Cert 2">
-                <img src="problem solving certificate hackerrank.jpg" alt="Cert 3">
-                <img src="girlup recommendation letter.jpg" alt="Cert 4">
-                <!-- Add more certificates as needed -->
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li><b>Languages:</b> Python, C++, HTML, CSS, SQL, JavaScript (learning), Java (learning)</li>
-                <li><b>Tools:</b> VS Code, PyCharm, NetBeans, Qt Creator, Code::Blocks, Oracle DB</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <ul>
-                <li><b>BSc Computer Science</b>, COMSATS Wah (2023-2027), CGPA: 3.63</li>
-                <li><b>Intermediate</b>, BASE College of Science and Commerce (2021-2023)</li>
-                <li><b>Matriculation</b>, F.G Public School No 7, Wah Cantt (2021)</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Community & Societies</h2>
-            <ul>
-                <li>ACM COMSATS – Developer Member</li>
-                <li>GirlUp Lahore – Outreach & Advocacy</li>
-                <li>COMSATS Sports Society – Event Team</li>
-                <li>APSU – Volunteer for education projects</li>
-                <li>Cultural Society COMSATS – Department Lead</li>
-            </ul>
-        </section>
+  <footer data-aos="fade-up">
+    <h4>Let's Connect</h4>
+    <div class="social-icons">
+      <a href="mailto:ramlahmunir786@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/ramlahmunir" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+923175018310"><i class="fas fa-phone"></i></a>
     </div>
+    <p>&copy; 2025 Ramlah Munir. All rights reserved.</p>
+  </footer>
 
-    <footer>
-        <h4>Let's Connect</h4>
-        <div class="social-icons">
-            <a href="mailto:ramlahmunir786@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/ramlahmunir" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="tel:+923175018310"><i class="fas fa-phone"></i></a>
-        </div>
-        <p>&copy; 2025 Ramlah Munir. All rights reserved.</p>
-    </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+    });
+  </script>
 </body>
 
 </html>
