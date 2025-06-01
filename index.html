@@ -4,153 +4,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAMLAH MUNIR</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <title>Ramlah Munir | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+            color: #3b3f5c;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 6px 0;
+        }
+
+        .certificates img {
+            width: 180px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .grid-two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Header section -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <!-- Left side of header: Name and title -->
-                <div class="header-left">
-                    <p>
-                        <span>RAMLAH MUNIR</span><br>
-                        <span>STUDENT</span>
-                    </p>
-                </div>
-                <!-- Right side of header: Profile image -->
-                <div class="header-right">
-                    <img src="profile-pic (4).png" alt="my_img">
-                </div>
-            </div>
-        </div>
+        <h1>Ramlah Munir</h1>
+        <p>Computer Science Student | Developer | Learner</p>
+        <img src="profile-pic (4).png" alt="Profile Picture">
     </header>
 
-    <!-- Main content section -->
-    <main>
-        <!-- About Me section -->
+    <div class="container">
         <section class="section">
-            <h2>ABOUT ME</h2>
-            <p>I am Ramlah Munir, a passionate computer science student at COMSATS University, Islamabad, Wah Campus. With a deep interest in coding and technology, I am driven to excel in my field and make meaningful contributions to the tech industry.</p>
+            <h2>About Me</h2>
+            <p>I am Ramlah Munir, a Computer Science student at COMSATS University Islamabad, Wah Campus. I love solving problems through code and building useful applications with clean design and purpose.</p>
         </section>
 
-        <!-- Education section -->
         <section class="section">
-            <big><b>Bachelors in Computer Science</b></big><br>
-            COMSATS University Islamabad, Wah Campus<br>
-            Computer Science Department<br>
-            2023 - 2027 (expected)<br>
-            CGPA: 3.63
-            <hr>
-            <big><b>Intermediate</b></big><br>
-            BASE College of Science and Commerce<br>
-            ICS<br>
-            2021 - 2023
-            <hr>
-            <big><b>Matriculation</b></big><br>
-            F.G Public School No 7, Girls Wah Cantt<br>
-            Science<br>
-            2021
+            <h2>Education</h2>
+            <div class="grid-two">
+                <div>
+                    <h4>Bachelors in Computer Science</h4>
+                    <p>COMSATS University Islamabad, Wah Campus (2023-2027)<br>CGPA: 3.63</p>
+                </div>
+                <div>
+                    <h4>Intermediate</h4>
+                    <p>BASE College of Science and Commerce (2021-2023)</p>
+                </div>
+            </div>
+            <div>
+                <h4>Matriculation</h4>
+                <p>F.G Public School No 7, Girls Wah Cantt (2021)</p>
+            </div>
         </section>
 
-        <!-- Programming Languages section -->
         <section class="section">
-            <h2>LANGUAGES</h2>
+            <h2>Skills</h2>
+            <div class="grid-two">
+                <div>
+                    <h4>Languages</h4>
+                    <ul>
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript (learning)</li>
+                        <li>Java (learning)</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li>PyCharm</li>
+                        <li>VS Code</li>
+                        <li>NetBeans</li>
+                        <li>Qt Creator</li>
+                        <li>Oracle DB</li>
+                        <li>Code::Blocks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Projects</h2>
             <ul>
-                <li>C++</li>
-                <li>Python</li>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript (learning)</li>
-                <li>SQL</li>
-                <li>Java (learning)</li>
+                <li><b>Bank Management System</b> (C++)</li>
+                <li><b>Password Generator</b> (Python)</li>
+                <li><b>Rock Paper Scissors, Hangman Game</b> (Python)</li>
+                <li><b>Number Guess Game</b> (Python)</li>
             </ul>
         </section>
 
-        <!-- Projects section -->
         <section class="section">
-            <h2>PROJECTS</h2>
-            <h3>C++</h3>
-            <ul>
-                <li>Bank Management System</li>
-            </ul>
-            <h3>Python</h3>
-            <ul>
-                <li>Password Generator</li>
-                <li>Number Guess Game</li>
-                <li>Rock Paper Scissors</li>
-                <li>Hangman Game</li>
-            </ul>
-        </section>
-
-        <!-- Tools section -->
-        <section class="section">
-            <h2>TOOLS</h2>
-            <ul>
-                <li>Dev C++</li>
-                <li>PyCharm</li>
-                <li>NetBeans</li>
-                <li>VS Code</li>
-                <li>Qt Creator</li>
-                <li>Oracle DB</li>
-                <li>CODE BLOCKS</li>
-            </ul>
-        </section>
-
-        <!-- Extra Curricular Activities section -->
-        <section class="section">
-            <h2>EXTRA CURRICULAR ACTIVITIES</h2>
-            <h4>SOCIETIES</h4>
-            <ul>
-                <b>ACM - COMSATS WAH CHAPTER</b><br>
-                INTERNATIONAL COMPUTING SOCIETY<br>
-                CLUB - CODE HUB
-                <hr>
-                <b>CSS</b><br>
-                COMSATS SPORTS SOCIETY<br>
-                EVENTS TEAM
-                <hr>
-                <b>GIRL UP - LAHORE CHAPTER</b><br>
-                INTERNATIONAL SOCIETY FOR WOMEN EMPOWERMENT
-                <hr>
-                <b>APSU</b><br>
-                ALL PAKISTAN STUDENT UNION<br>
-                AS A VOLUNTEER FOR DIFFERENT PROJECTS
-                <hr>
-                <b>CULTURAL SOCIETY COMSATS WAH</b><br>
-                DEPARTMENT LEAD
-            </ul>
-        </section>
-
-        <!-- Certificates section -->
-        <section class="section">
-            <h2>CERTIFICATES</h2>
+            <h2>Certificates</h2>
             <div class="certificates">
-                <img src="10.jpg" alt="Certificate 1" width="200" height="150">
-        <img src="python basic certificate hackerrank.jpg" alt="Certificate 2" width="200" height="150">
-        <img src="problem solving certificate hackerrank.jpg" alt="Certificate 3" width="200" height="150">
-        <img src="girlup recommendation letter.jpg" alt="Certificate 4" width="200" height="150">
+                <img src="10.jpg" alt="Cert 1">
+                <img src="python basic certificate hackerrank.jpg" alt="Cert 2">
+                <img src="problem solving certificate hackerrank.jpg" alt="Cert 3">
+                <img src="girlup recommendation letter.jpg" alt="Cert 4">
             </div>
         </section>
 
-    </main>
+        <section class="section">
+            <h2>Extra-Curricular Activities</h2>
+            <ul>
+                <li><b>ACM</b> – International Computing Society, COMSATS Wah Chapter</li>
+                <li><b>CSS</b> – COMSATS Sports Society (Events Team)</li>
+                <li><b>Girl Up</b> – Lahore Chapter (Women Empowerment)</li>
+                <li><b>APSU</b> – All Pakistan Student Union (Volunteer)</li>
+                <li><b>Cultural Society</b> – Department Lead, COMSATS Wah</li>
+            </ul>
+        </section>
+    </div>
 
-    <!-- Footer section -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h4>CONTACT ME</h4>
-                <p>
-                <p>Email:    ramlahmunir786@gmail.com</p>
-                <p>Contact# : +923175018310</p>
-                <p>alternate#: +923260518310</p>
-            </div>
+        <h4>Contact Me</h4>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> ramlahmunir786@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +92 317 5018310 | +92 326 0518310</p>
         </div>
     </footer>
-
 </body>
 
 </html>
