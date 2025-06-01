@@ -95,9 +95,26 @@
       animation: fadeInUp 1.5s ease-out;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="AOS.init();">
+  <style>
+    .slideshow {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+    .slideshow img {
+      width: 100%;
+      border-radius: 5px;
+    }
+  </style>
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -142,12 +159,13 @@
       </ul>
     </section>
 
-    <section class="section" id="certificates">
+    <section class="section" id="certificates" data-aos="fade-up">
       <h2>Academic Certificates</h2>
-      <ul>
-        <li>Python for Data Science – HackerRank</li>
-        <li>Problem Solving – HackerRank</li>
-      </ul>
+      <div class="slideshow certificate-carousel">
+        <div><img src="python_certificate.jpg" alt="Python Certificate"></div>
+        <div><img src="problem_solving.jpg" alt="Problem Solving"></div>
+        <div><img src="datascience.jpg" alt="Data Science"></div>
+      </div>
     </section>
 
     <section class="section" id="leadership">
@@ -161,12 +179,22 @@
 
     <section class="section" id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>Fingerprint + Face Authentication System (Python, MySQL)</li>
-        <li>MindMate Mental Health Chatbot (DialoGPT, PyQt5)</li>
-        <li>FLT3-ITD Gene Explorer (Bioinformatics Tool)</li>
-        <li>Personal Portfolio Website (This one!)</li>
-      </ul>
+      <div class="project" data-aos="fade-up">
+        <h3>Fingerprint + Face Authentication</h3>
+        <p>Biometric system using Python and MySQL</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>MindMate Mental Health Chatbot</h3>
+        <p>Built with DialoGPT and PyQt5, offers emotional support</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>FLT3-ITD Gene Explorer</h3>
+        <p>Bioinformatics tool for exploring FLT3-ITD mutations</p>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <h3>Portfolio Website</h3>
+        <p>This animated, styled resume site</p>
+      </div>
     </section>
   </div>
 
@@ -176,6 +204,19 @@
     <p>Phone: +92 317 5018310</p>
     <p><a href="https://www.linkedin.com/in/ramlahmunir" style="color: var(--accent);">LinkedIn</a></p>
   </footer>
+  <script>
+    $(document).ready(function(){
+      $('.certificate-carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
+    });
+  </script>
 </body>
 
 </html>
