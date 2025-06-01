@@ -62,14 +62,14 @@
       flex: 1;
     }
 
-    .section {
-      background-color: #111111;
-      border-left: 5px solid var(--accent);
-      padding: 30px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      color: var(--text);
-    }
+    $1
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+}
+.section:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(214, 40, 40, 0.6);
+}
 
     h1, h2 {
       color: var(--accent);
