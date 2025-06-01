@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramlah Munir | Portfolio</title>
+    <title>Ramlah Munir | Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -18,18 +18,20 @@
         body {
             background-color: #f4f6f9;
             color: #333;
+            scroll-behavior: smooth;
         }
 
         header {
             background: linear-gradient(to right, #667eea, #764ba2);
             color: white;
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         header img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 4px solid white;
             margin-top: 20px;
@@ -44,9 +46,10 @@
         .section {
             background-color: white;
             margin: 20px 0;
-            padding: 20px;
+            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+            animation: slideInUp 1s ease;
         }
 
         .section h2 {
@@ -63,38 +66,61 @@
             padding: 6px 0;
         }
 
-        .certificates img {
-            width: 180px;
+        .certificates, .project-gallery {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+        }
+
+        .certificates img, .project-gallery img {
+            width: 250px;
             height: auto;
-            margin: 10px;
             border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .certificates img:hover, .project-gallery img:hover {
+            transform: scale(1.05);
         }
 
         footer {
             background-color: #333;
             color: #fff;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
         }
 
-        .contact-info p {
-            margin: 5px 0;
+        .footer-content p, .social-icons a {
+            margin: 8px;
         }
 
-        .grid-two {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00acee;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            .grid-two {
-                grid-template-columns: 1fr;
-            }
-
-            header img {
-                width: 100px;
-                height: 100px;
+            .certificates, .project-gallery {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -103,70 +129,35 @@
 <body>
     <header>
         <h1>Ramlah Munir</h1>
-        <p>Computer Science Student | Developer | Learner</p>
+        <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
         <img src="profile-pic (4).png" alt="Profile Picture">
     </header>
 
     <div class="container">
         <section class="section">
             <h2>About Me</h2>
-            <p>I am Ramlah Munir, a Computer Science student at COMSATS University Islamabad, Wah Campus. I love solving problems through code and building useful applications with clean design and purpose.</p>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <div class="grid-two">
-                <div>
-                    <h4>Bachelors in Computer Science</h4>
-                    <p>COMSATS University Islamabad, Wah Campus (2023-2027)<br>CGPA: 3.63</p>
-                </div>
-                <div>
-                    <h4>Intermediate</h4>
-                    <p>BASE College of Science and Commerce (2021-2023)</p>
-                </div>
-            </div>
-            <div>
-                <h4>Matriculation</h4>
-                <p>F.G Public School No 7, Girls Wah Cantt (2021)</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Skills</h2>
-            <div class="grid-two">
-                <div>
-                    <h4>Languages</h4>
-                    <ul>
-                        <li>C++</li>
-                        <li>Python</li>
-                        <li>HTML/CSS</li>
-                        <li>JavaScript (learning)</li>
-                        <li>Java (learning)</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Tools</h4>
-                    <ul>
-                        <li>PyCharm</li>
-                        <li>VS Code</li>
-                        <li>NetBeans</li>
-                        <li>Qt Creator</li>
-                        <li>Oracle DB</li>
-                        <li>Code::Blocks</li>
-                    </ul>
-                </div>
-            </div>
+            <p>I’m Ramlah Munir, a passionate developer and Computer Science student who believes in designing impactful user-focused digital experiences. I love combining clean code with smart design and making things that matter.</p>
         </section>
 
         <section class="section">
             <h2>Projects</h2>
-            <ul>
-                <li><b>Bank Management System</b> (C++)</li>
-                <li><b>Password Generator</b> (Python)</li>
-                <li><b>Rock Paper Scissors, Hangman Game</b> (Python)</li>
-                <li><b>Number Guess Game</b> (Python)</li>
-            </ul>
+            <h3>Bank Management System</h3>
+            <p>A CLI-based banking solution in C++ managing deposits, withdrawals, and account creation securely.</p>
+            <div class="project-gallery">
+                <img src="bank1.png" alt="Bank Project 1">
+                <img src="bank2.png" alt="Bank Project 2">
+            </div>
+            <h3>Password Generator (Python)</h3>
+            <p>Secure, random password generator with strength settings and clipboard copy feature.</p>
+            <div class="project-gallery">
+                <img src="pass1.png" alt="Password Generator">
+            </div>
+            <h3>Mental Health Chatbot</h3>
+            <p>AI-powered chatbot for emotional support with BERT-based emotion detection and PyQt GUI.</p>
+            <div class="project-gallery">
+                <img src="chatbot1.png" alt="Chatbot UI">
+                <img src="chatbot2.png" alt="Chatbot Flow">
+            </div>
         </section>
 
         <section class="section">
@@ -176,27 +167,47 @@
                 <img src="python basic certificate hackerrank.jpg" alt="Cert 2">
                 <img src="problem solving certificate hackerrank.jpg" alt="Cert 3">
                 <img src="girlup recommendation letter.jpg" alt="Cert 4">
+                <!-- Add more certificates as needed -->
             </div>
         </section>
 
         <section class="section">
-            <h2>Extra-Curricular Activities</h2>
+            <h2>Skills</h2>
             <ul>
-                <li><b>ACM</b> – International Computing Society, COMSATS Wah Chapter</li>
-                <li><b>CSS</b> – COMSATS Sports Society (Events Team)</li>
-                <li><b>Girl Up</b> – Lahore Chapter (Women Empowerment)</li>
-                <li><b>APSU</b> – All Pakistan Student Union (Volunteer)</li>
-                <li><b>Cultural Society</b> – Department Lead, COMSATS Wah</li>
+                <li><b>Languages:</b> Python, C++, HTML, CSS, SQL, JavaScript (learning), Java (learning)</li>
+                <li><b>Tools:</b> VS Code, PyCharm, NetBeans, Qt Creator, Code::Blocks, Oracle DB</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <ul>
+                <li><b>BSc Computer Science</b>, COMSATS Wah (2023-2027), CGPA: 3.63</li>
+                <li><b>Intermediate</b>, BASE College of Science and Commerce (2021-2023)</li>
+                <li><b>Matriculation</b>, F.G Public School No 7, Wah Cantt (2021)</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Community & Societies</h2>
+            <ul>
+                <li>ACM COMSATS – Developer Member</li>
+                <li>GirlUp Lahore – Outreach & Advocacy</li>
+                <li>COMSATS Sports Society – Event Team</li>
+                <li>APSU – Volunteer for education projects</li>
+                <li>Cultural Society COMSATS – Department Lead</li>
             </ul>
         </section>
     </div>
 
     <footer>
-        <h4>Contact Me</h4>
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> ramlahmunir786@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +92 317 5018310 | +92 326 0518310</p>
+        <h4>Let's Connect</h4>
+        <div class="social-icons">
+            <a href="mailto:ramlahmunir786@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ramlahmunir" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="tel:+923175018310"><i class="fas fa-phone"></i></a>
         </div>
+        <p>&copy; 2025 Ramlah Munir. All rights reserved.</p>
     </footer>
 </body>
 
