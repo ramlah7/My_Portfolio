@@ -27,19 +27,15 @@
     }
 
     body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       background-color: var(--background);
       color: var(--text);
       scroll-behavior: smooth;
       font-smooth: always;
       -webkit-font-smoothing: antialiased;
-    }
-
-    header {
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      color: var(--accent);
-      padding: 60px 0;
-      text-align: center;
-      text-shadow: 0 0 8px var(--accent);
+      margin: 0;
     }
 
     header img {
@@ -128,7 +124,7 @@
   <nav style="position:sticky;top:0;background-color:var(--primary);padding:10px;text-align:center;z-index:999;">
     <a href="#contact" style="color:#fff;margin:0 15px;text-decoration:none;font-weight:bold;">Contact Me</a>
   </nav>
-  <main class="container">
+  <main class="container" style="flex: 1 1 auto;">
     <header data-aos="fade-down">
     <h1>Ramlah Munir</h1>
     <p>Creative Developer | Tech Enthusiast | Problem Solver</p>
@@ -221,7 +217,7 @@
       </div>
     </section>
   </main>
-  <footer data-aos="fade-up">
+  <footer data-aos="fade-up" style="margin-top: 40px; background-color: var(--secondary); color: var(--accent); padding: 60px 20px; text-align: center; border-top: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent);">
     <h4 id="contact">Let's Connect</h4>
     <div class="social-icons">
       <a href="mailto:ramlahmunir786@gmail.com"><i class="fas fa-envelope"></i></a>
