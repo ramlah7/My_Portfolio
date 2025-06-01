@@ -82,6 +82,18 @@
       text-align: center;
       border-top: 2px solid var(--accent);
     }
+      @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    header, footer, nav {
+      animation: fadeInUp 1.5s ease-out;
+    }
   </style>
 </head>
 
