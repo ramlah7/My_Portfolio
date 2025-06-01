@@ -8,11 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #ffffff;
-      --secondary: #000000;
+      --primary: #000000;
+      --secondary: #ffffff;
       --accent: #d62828;
-      --background: #fefefe;
-      --text: #111111;
+      --background: #000000;
+      --text: #ffffff;
     }
 
     * {
@@ -31,23 +31,25 @@
     }
 
     header {
-      background-color: var(--accent);
-      color: var(--secondary);
+      background-color: var(--background);
+      color: var(--accent);
       padding: 60px 20px;
       text-align: center;
+      border-bottom: 2px solid var(--accent);
     }
 
     nav {
       position: sticky;
       top: 0;
-      background-color: var(--accent);
+      background-color: var(--background);
       text-align: center;
       padding: 10px;
       z-index: 999;
+      border-bottom: 1px solid var(--accent);
     }
 
     nav a {
-      color: #fff;
+      color: var(--accent);
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
@@ -61,12 +63,12 @@
     }
 
     .section {
-      background-color: #fff;
+      background-color: #111111;
       border-left: 5px solid var(--accent);
       padding: 30px;
       margin-bottom: 20px;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: var(--text);
     }
 
     h1, h2 {
@@ -74,10 +76,11 @@
     }
 
     footer {
-      background-color: var(--secondary);
+      background-color: var(--background);
       color: var(--accent);
       padding: 30px;
       text-align: center;
+      border-top: 2px solid var(--accent);
     }
   </style>
 </head>
