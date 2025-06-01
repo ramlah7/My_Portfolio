@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
     :root {
       --primary: #5e60ce;
@@ -79,27 +81,14 @@
       padding: 6px 0;
     }
 
-    .certificates,
-    .project-gallery {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 15px;
-      padding: 10px 0;
+    .slideshow {
+      margin-top: 20px;
     }
 
-    .certificates img,
-    .project-gallery img {
-      width: 250px;
+    .slideshow img {
+      width: 100%;
       height: auto;
       border-radius: 12px;
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-
-    .certificates img:hover,
-    .project-gallery img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     footer {
@@ -122,10 +111,8 @@
     }
 
     @media (max-width: 768px) {
-      .certificates,
-      .project-gallery {
-        flex-direction: column;
-        align-items: center;
+      .slideshow img {
+        width: 100%;
       }
     }
   </style>
@@ -138,8 +125,37 @@
     <img src="profile-pic (4).png" alt="Profile Picture">
   </header>
 
-  <div class="container">
-    <!-- All content remains unchanged -->
+  
+    <section class="section" data-aos="fade-up">
+      <h2>Academic Certifications</h2>
+      <div class="slideshow academic-certificates">
+        <div><img src="python_basic_certificate.jpg" alt="Python Certificate"></div>
+        <div><img src="problem_solving_certificate.jpg" alt="Problem Solving"></div>
+        <div><img src="data_science_intro.jpg" alt="Data Science"></div>
+        <!-- Add more academic certificates -->
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>Leadership & Volunteering</h2>
+      <div class="slideshow volunteer-certificates">
+        <div><img src="girlup_recommendation.jpg" alt="Girl Up"></div>
+        <div><img src="apsu_volunteer.jpg" alt="APSU"></div>
+        <div><img src="event_coordination.jpg" alt="Event Coordination"></div>
+        <!-- Add more volunteer/leadership certificates -->
+      </div>
+    </section>
+    <section class="section" data-aos="fade-up">
+      <h2>Featured Projects</h2>
+      <div class="slideshow project-slideshow">
+        <div><img src="project1.png" alt="Project 1"></div>
+        <div><img src="project2.png" alt="Project 2"></div>
+        <div><img src="project3.png" alt="Project 3"></div>
+        <div><img src="project4.png" alt="Project 4"></div>
+        <div><img src="project5.png" alt="Project 5"></div>
+        <div><img src="project6.png" alt="Project 6"></div>
+      </div>
+    </section>
   </div>
 
   <footer data-aos="fade-up">
@@ -152,10 +168,42 @@
     <p>&copy; 2025 Ramlah Munir. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">    $('.academic-certificates').slick({
+      dots: true,
+      infinite: true,
+      speed: 600,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows: true,
+    });
+    $('.volunteer-certificates').slick({
+      dots: true,
+      infinite: true,
+      speed: 600,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      arrows: true,
+    });
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1200,
+    AOS.init({ duration: 1200 });
+    $(document).ready(function () {
+      $('.project-slideshow').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+      });
     });
   </script>
 </body>
