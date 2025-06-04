@@ -38,6 +38,13 @@
       border-bottom: 2px solid var(--accent);
     }
 
+    header img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
     nav {
       position: sticky;
       top: 0;
@@ -116,6 +123,19 @@
       width: 100%;
       border-radius: 5px;
     }
+
+    .project-section {
+      margin-bottom: 30px;
+    }
+
+    .project-section h3 {
+      color: var(--accent);
+    }
+
+    .project-details {
+      margin-top: 10px;
+    }
+
   </style>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
@@ -129,19 +149,12 @@
 <body onload="AOS.init();">
 
   <header>
+    <img src="your_picture.jpg" alt="Ramlah Munir"> <!-- Add your picture file here -->
     <h1>Ramlah Munir</h1>
     <p>Wah Cantt, Pakistan | its.ramlahmunir@gmail.com | +92 326 0518310</p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">www.linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7" style="color: var(--accent);">github.com/Ramlah7</a></p>
     <h2>Profile Summary</h2>
     <p>Computer Science undergraduate with a strong interest in Artificial Intelligence and Cybersecurity. Experienced in Python, Java, C++, MySQL, and GUI development using frameworks like Qt, Tkinter, and Swing. Known for taking initiative, solving problems creatively, and thriving in team settings. Actively involved in coding societies and tech events.</p>
-    <h2>Core Skills</h2>
-    <ul>
-      <li>Programming: Python, Java, C++, MySQL, HTML</li>
-      <li>GUI Development: PyQt (Qt Designer), Tkinter, Java Swing</li>
-      <li>Areas of Interest: AI, Cybersecurity, Machine Learning (NLP)</li>
-      <li>Tools & Platforms: VS Code, NetBeans, IntelliJ IDEA, PyCharm, Git, GitHub, CodeBlocks</li>
-      <li>Soft Skills: Leadership, Problem-Solving, Communication, Event Coordination</li>
-    </ul>
   </header>
 
   <nav>
@@ -154,6 +167,17 @@
   </nav>
 
   <div class="container">
+    <section class="section" id="skills">
+      <h2>Core Skills</h2>
+      <ul>
+        <li>Programming: Python, Java, C++, MySQL, HTML</li>
+        <li>GUI Development: PyQt (Qt Designer), Tkinter, Java Swing</li>
+        <li>Areas of Interest: AI, Cybersecurity, Machine Learning (NLP)</li>
+        <li>Tools & Platforms: VS Code, NetBeans, IntelliJ IDEA, PyCharm, Git, GitHub, CodeBlocks</li>
+        <li>Soft Skills: Leadership, Problem-Solving, Communication, Event Coordination</li>
+      </ul>
+    </section>
+
     <section class="section" id="education">
       <h2>Education</h2>
       <p><strong>Bachelor of Science in Computer Science</strong><br>
@@ -165,25 +189,31 @@
 
     <section class="section" id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>MindMate – AI-Powered Mental Health Chatbot</li>
-        <li>Library Management System</li>
-        <li>Auth2x – Biometric Login System</li>
-        <li>Redacted Vault – Secure Media Vault</li>
-        <li>Bank Management System</li>
-        <li>Hangman CLI Game</li>
-        <li>Wikipedia Chatbot (CLI/GUI)</li>
-      </ul>
 
-      <div class="slideshow project-carousel">
-        <div><img src="mindmate.jpg" alt="MindMate"></div>
-        <div><img src="library_management.jpg" alt="Library Management System"></div>
-        <div><img src="auth2x.jpg" alt="Auth2x Biometric Login"></div>
-        <div><img src="redacted_vault.jpg" alt="Redacted Vault"></div>
-        <div><img src="bank_management.jpg" alt="Bank Management System"></div>
-        <div><img src="hangman_game.jpg" alt="Hangman Game"></div>
-        <div><img src="wikipedia_chatbot.jpg" alt="Wikipedia Chatbot"></div>
+      <div class="project-section" id="mindmate">
+        <h3>MindMate – AI-Powered Mental Health Chatbot</h3>
+        <div class="slideshow">
+          <div><img src="mindmate_project_image1.jpg" alt="MindMate Image 1"></div>
+          <div><img src="mindmate_project_image2.jpg" alt="MindMate Image 2"></div>
+        </div>
+        <div class="project-details">
+          <p>Built with Python and PyQt using Qt Designer. Uses NLP and OpenAI API to detect user sentiment and generate empathetic responses. Chat history is stored in a MySQL database for continuity.</p>
+        </div>
       </div>
+
+      <div class="project-section" id="library-management">
+        <h3>Library Management System</h3>
+        <div class="slideshow">
+          <div><img src="library_management_image1.jpg" alt="Library Management System Image 1"></div>
+          <div><img src="library_management_image2.jpg" alt="Library Management System Image 2"></div>
+        </div>
+        <div class="project-details">
+          <p>Java desktop app built with Swing and MySQL integration via JDBC. Manages book catalog, issuer tracking, and transaction records.</p>
+        </div>
+      </div>
+
+      <!-- Add more project sections in a similar manner -->
+      
     </section>
 
     <section class="section" id="certificates">
@@ -250,8 +280,19 @@
         autoplay: true,
         autoplaySpeed: 3000
       });
+
+      $('.project-section .slideshow').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
     });
   </script>
+
 </body>
 
 </html>
