@@ -31,18 +31,47 @@
     }
 
     header {
-      background-color: #808080;
-      color: #2A227D;
-      padding: 60px 20px;
-      text-align: center;
+      background-color: #2A227D;
+      color: #B8B3EA;
+      padding: 40px 20px;
       border-bottom: 2px solid var(--accent);
     }
 
-    header img {
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .header-info h1 {
+      margin-bottom: 10px;
+    }
+
+    .header-info p {
+      margin: 5px 0;
+    }
+
+    .header-pic {
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+
+    .header-pic img {
       border-radius: 50%;
       width: 150px;
       height: 150px;
-      margin-bottom: 20px;
+    }
+
+    .profile-summary {
+      margin-top: 20px;
+      color: var(--text);
+      white-space: pre-line;
     }
 
     nav {
@@ -76,10 +105,10 @@
       margin-bottom: 20px;
       border-radius: 5px;
       color: var(--text);
+      animation: fadeInUp 1s ease-out;
     }
 
-    h1,
-    h2 {
+    h1, h2 {
       color: #4FC4CF;
     }
 
@@ -89,39 +118,43 @@
       padding: 30px;
       text-align: center;
       border-top: 2px solid var(--accent);
+      animation: fadeInUp 1.5s ease-out;
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .section {
-      animation: fadeInUp 1s ease-out;
-    }
-
-    header,
-    footer,
-    nav {
-      animation: fadeInUp 1.5s ease-out;
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .slideshow {
       display: flex;
       flex-wrap: nowrap;
-      overflow: hidden;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 15px;
+      padding-bottom: 10px;
+    }
+
+    .slideshow::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .slideshow::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
     }
 
     .slideshow img {
-      width: 100%;
+      height: 220px;
+      width: auto;
+      flex-shrink: 0;
       border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .slideshow img:hover {
+      transform: scale(1.03);
     }
 
     .project-section {
@@ -135,26 +168,21 @@
     .project-details {
       margin-top: 10px;
     }
-
   </style>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body onload="AOS.init();">
-
+<body>
   <header>
-    <img src="profilePic.jpeg" alt="Ramlah Munir"> <!-- Add your picture file here -->
-    <h1>Ramlah Munir</h1>
-    <p>Wah Cantt, Pakistan | its.ramlahmunir@gmail.com | +92 326 0518310</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">www.linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7" style="color: var(--accent);">github.com/Ramlah7</a></p>
-    <h2>Profile Summary</h2>
-    <p>Computer Science undergraduate with a strong interest in Artificial Intelligence and Cybersecurity. Experienced in Python, Java, C++, MySQL, and GUI development using frameworks like Qt, Tkinter, and Swing. Known for taking initiative, solving problems creatively, and thriving in team settings. Actively involved in coding societies and tech events.</p>
+    <div class="header-container">
+      <div class="header-info">
+        <h1>Ramlah Munir</h1>
+        <p>Wah Cantt, Pakistan | Email: its.ramlahmunir@gmail.com | Phone: +92 326 0518310</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7" style="color: var(--accent);">github.com/Ramlah7</a></p>
+      </div>
+      <div class="header-pic">
+        <img src="profilePic.jpeg" alt="Ramlah Munir">
+      </div>
+    </div>
   </header>
 
   <nav>
@@ -163,188 +191,127 @@
     <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a href="#certificates">Certificates</a>
-    <a href="#volunteer">Volunteer</a>
+    <a href="#badges">Badges</a>
   </nav>
 
   <div class="container">
+    <section class="section" id="about">
+      <h2>profile-summary</h2>
+      <p>
+Computer Science undergraduate passionate about AI, Cybersecurity, and Software Development.
+Skilled in multiple programming languages and frameworks, including Python, Java, and C++.
+Recognized for leadership, creative problem solving, and team collaboration.
+Actively contributes to coding societies and technical events.
+      </p>
+    </section>
+
     <section class="section" id="skills">
       <h2>Core Skills</h2>
       <ul>
         <li>Programming: Python, Java, C++, MySQL, HTML</li>
         <li>GUI Development: PyQt (Qt Designer), Tkinter, Java Swing</li>
-        <li>Areas of Interest: AI, Cybersecurity, Machine Learning (NLP)</li>
-        <li>Tools & Platforms: VS Code, NetBeans, IntelliJ IDEA, PyCharm, Git, GitHub, CodeBlocks</li>
-        <li>Soft Skills: Leadership, Problem-Solving, Communication, Event Coordination</li>
+        <li>Areas of Interest: AI, Cybersecurity, NLP</li>
+        <li>Tools & Platforms: VS Code, IntelliJ, PyCharm, Git, GitHub</li>
+        <li>Soft Skills: Leadership, Communication, Teamwork</li>
       </ul>
     </section>
 
     <section class="section" id="education">
       <h2>Education</h2>
-      <p><strong>Bachelor of Science in Computer Science</strong><br>
-        COMSATS University Islamabad, Wah Campus (2023–Present)<br>
-        CGPA: 3.48</p>
-      <p><strong>Intermediate in Computer Science (ICS)</strong><br>
-        Base College, Wah (2023)</p>
+      <p><strong>BS in Computer Science</strong> – COMSATS University, Wah Campus (2023–Present) – CGPA: 3.48</p>
+      <p><strong>Intermediate in Computer Science</strong> – Base College, Wah (2023)</p>
     </section>
 
     <section class="section" id="projects">
       <h2>Projects</h2>
 
       <div class="project-section" id="LiveNewsModule">
-        <h3>LiveNewsModule – A Module in Civic participation app</h3>
+        <h3>LiveNewsModule – Civic App Feature</h3>
         <div class="slideshow">
-          <div><img src="LiveNewsUpdte1.png" alt="LiveNewsUpdate Image 1"></div>
-          <div><img src="LiveNewsUpdate2.png" alt="LiveNewsUpdate Image 2"></div>
-          <div><img src="LiveNewsUpdate3.png" alt="LiveNewsUpdate Image 3"></div>
+          <img src="LiveNewsUpdte1.png">
+          <img src="LiveNewsUpdate2.png">
+          <img src="LiveNewsUpdate3.png">
         </div>
         <div class="project-details">
-          <p>Built with Python and PyQt using Qt Designer. Uses feedparser to fetch latest news from genuine websites like Dawn_News, The News, BBc and al-jazeera.</p>
-          <p>LiveNewsUpdate is part of a civic participation system made in my civics and community engagement course as a group project which helps users to actively engage with community</p>
+          <p>Python PyQt module that integrates RSS feeds (Dawn News, BBC, Al Jazeera). Developed as part of a civic engagement platform to keep citizens informed.</p>
         </div>
       </div>
+
       <div class="project-section" id="mindmate">
-        <h3>MindMate – AI-Powered Mental Health Chatbot</h3>
+        <h3>MindMate – AI Mental Health Chatbot</h3>
         <div class="slideshow">
-          <div><img src="mindmate_project_image1.jpg" alt="MindMate Image 1"></div>
-          <div><img src="mindmate_project_image2.jpg" alt="MindMate Image 2"></div>
+          <img src="mindmate_project_image1.jpg">
+          <img src="mindmate_project_image2.jpg">
         </div>
         <div class="project-details">
-          <p>Built with Python and PyQt using Qt Designer. Uses NLP and OpenAI API to detect user sentiment and generate empathetic responses. Chat history is stored in a MySQL database for continuity.</p>
+          <p>Empathetic AI chatbot built in Python. Uses OpenAI API + MySQL. GUI made using PyQt. Supports emotion detection and safe dialogue.</p>
         </div>
       </div>
 
       <div class="project-section" id="library-management">
         <h3>Library Management System</h3>
         <div class="slideshow">
-          <div><img src="library_management_image1.jpg" alt="Library Management System Image 1"></div>
-          <div><img src="library_management_image2.jpg" alt="Library Management System Image 2"></div>
+          <img src="library_management_image1.jpg">
+          <img src="library_management_image2.jpg">
         </div>
         <div class="project-details">
-          <p>Java desktop app built with Swing and MySQL integration via JDBC. Manages book catalog, issuer tracking, and transaction records.</p>
+          <p>Java Swing GUI project with MySQL database. Automates book issuing, returns, fine calculation, and cataloging.</p>
         </div>
       </div>
-
-      <!-- Add more project sections in a similar manner -->
-      
     </section>
 
     <section class="section" id="certificates">
       <h2>Certificates</h2>
-      <h3>Study-Related Certifications</h3>
+      <h3>Technical Certifications</h3>
       <ul>
-        <li>Python Functions, Files, and Dictionaries – University of Michigan</li>
+        <li>Python Programming – CodeAlpha Internship</li>
         <li>Programming for Everybody – University of Michigan</li>
-        <li>Cybersecurity Essentials – Coursera</li>
-        <li>Introduction to Cybersecurity (Honors) – IBM</li>
-        <li>Data Science Methodology – IBM</li>
-        <li>Tools for Data Science v2 – IBM</li>
-        <li>Connect and Protect: Networks and Network Security – Google</li>
+        <li>Cybersecurity Essentials – IBM</li>
+        <li>Tools for Data Science – IBM</li>
+        <li>Problem Solving & SQL – HackerRank</li>
       </ul>
-      <div class="slideshow certificate-carousel">
-        <div><img src="WhatIsDataScience.png" alt="Python Certificate"></div>
-        <div><img src="ToolsForDataScience.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="ToolsOfTRade_linuxandsql.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="python basic certificate hackerrank.jpg" alt="Cybersecurity Certificate"></div>
-        <div><img src="ProgrammingForEveryBody.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="problem solving certificate hackerrank.jpg" alt="Cybersecurity Certificate"></div>
-        <div><img src="Java.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="IntroToCybersecurityCareers.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="IntroToCyberSecurityEssentials.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="DataScienceMethodology.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Cybersecurity Certificate"></div>
+      <div class="slideshow">
+        <img src="codeaplha.png">
+        <img src="ProgrammingForEveryBody.png">
+        <img src="IntroToCyberSecurityEssentials.png">
+        <img src="ToolsForDataScience.png">
+        <img src="problem solving certificate hackerrank.jpg">
+        <img src="Java.png">
       </div>
 
-      <h3>Leadership & Volunteer Certifications</h3>
+      <h3>Recommendation Letters & Achievements</h3>
       <ul>
-        <li>Connect and Protect: Networks and Network Security – Google</li>
-        <li>SQL Basics – HackerRank</li>
-        <li>Problem Solving – HackerRank</li>
-        <li>Python Programming Internship – CodeAlpha</li>
+        <li>GirlUp STEM – Recommendation for Leadership in STEM Advocacy</li>
+        <li>ACM – Appreciation for Organizing and Creative Contributions</li>
       </ul>
-      <div class="slideshow certificate-carousel">
-        <div><img src="OrphanageVisit.png" alt="Leadership Certificate"></div>
-        <div><img src="GirlupSTEM.jpg" alt="Volunteer Certificate"></div>
-        <div><img src="DecorAcm.png" alt="Volunteer Certificate"></div>
-        <div><img src="CulturalSociety.png" alt="Volunteer Certificate"></div>
-        <div><img src="CricketOrganizer.png" alt="Volunteer Certificate"></div>
-        <div><img src="Bowld.png" alt="Volunteer Certificate"></div>
-        <div><img src="AcmGirlsFiesta.png" alt="Volunteer Certificate"></div>
-        <div><img src="ACM appreciation letter.jpg" alt="Volunteer Certificate"></div>
-      </div>
-    </section>
-
-    <section class="section" id="honors and awards">
-      <h2>Campus Involvement and Volunteer</h2>
-      <ul>
-        <li>ACM Code Hub Club — General Member</li>
-        <li>COMSATS Literary Society (CLS) — Events Team</li>
-        <li>COMSATS Sports Society — Events Team</li>
-        <li>Chain for Change — Volunteer</li>
-        <li>ACM Girls’ Fiesta — Decor Team Member</li>
-        <li>Girl Up STEM Program — Participant</li>
-        <li>BOWLD Conference 2025 — Participant</li>
-      </ul>
-      <div class="slideshow certificate-carousel">
-        <div><img src="girlup recommendation letter.jpg" alt="Leadership Certificate"></div>
-        <div><img src="ACM appreciation letter.jpg" alt="Volunteer Certificate"></div>
-        <div><img src="css_promotion.png" alt="Volunteer Certificate"></div>
-        <div><img src="reccomendation letter.jpeg" alt="Volunteer Certificate"></div>
-        <div><img src="codeaplha.png" alt="Volunteer Certificate"></div>
+      <div class="slideshow">
+        <img src="girlup recommendation letter.jpg">
+        <img src="ACM appreciation letter.jpg">
+        <img src="reccomendation letter.jpeg">
       </div>
     </section>
 
     <section class="section" id="badges">
-      <h2>Campus Involvement and Volunteer</h2>
+      <h2>IBM Digital Badges</h2>
       <ul>
-        <li>ACM Code Hub Club — General Member</li>
-        <li>COMSATS Literary Society (CLS) — Events Team</li>
-        <li>COMSATS Sports Society — Events Team</li>
-        <li>Chain for Change — Volunteer</li>
-        <li>ACM Girls’ Fiesta — Decor Team Member</li>
-        <li>Girl Up STEM Program — Participant</li>
-        <li>BOWLD Conference 2025 — Participant</li>
+        <li>Cybersecurity Essentials</li>
+        <li>Data Science Methodology</li>
+        <li>Introduction to Cybersecurity Careers</li>
+        <li>Tools for Data Science v2</li>
       </ul>
-      <div class="slideshow certificate-carousel">
-        <div><img src="badgecybersecurity-essentials.png" alt="Leadership Certificate"></div>
-        <div><img src="badgedata-science-methodology.png" alt="Volunteer Certificate"></div>
-        <div><img src="badgeDatasciencemethodology.png" alt="Volunteer Certificate"></div>
-        <div><img src="badgeintrotocybersecuritycareers.png" alt="Volunteer Certificate"></div>
-        <div><img src="badgetools-for-data-science-v2.png" alt="Volunteer Certificate"></div>
+      <div class="slideshow">
+        <img src="badgecybersecurity-essentials.png">
+        <img src="badgedata-science-methodology.png">
+        <img src="badgeintrotocybersecuritycareers.png">
+        <img src="badgetools-for-data-science-v2.png">
       </div>
     </section>
-
-    <footer>
-      <p>Phone: +92 326 0518310</p>
-      <p><a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">LinkedIn</a></p>
-      <p><a href="https://github.com/Ramlah7" style="color: var(--accent);">GitHub</a></p>
-    </footer>
-
   </div>
 
-  <script>
-    $(document).ready(function(){
-      $('.certificate-carousel').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        adaptiveHeight: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-      });
-
-      $('.project-section .slideshow').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        adaptiveHeight: true,
-        autoplay: true,
-        autoplaySpeed: 3000
-      });
-    });
-  </script>
-
+  <footer>
+    <p>Phone: +92 326 0518310</p>
+    <p><a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">LinkedIn</a></p>
+    <p><a href="https://github.com/Ramlah7" style="color: var(--accent);">GitHub</a></p>
+  </footer>
 </body>
-
 </html>
