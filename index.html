@@ -9,7 +9,7 @@
   <style>
     :root {
       --primary: #000000;
-      --secondary: #ffffff;
+      --secondary: #00FF00;
       --accent: #4FC4CF;
       --background: #000000;
       --text: #ffffff;
@@ -24,15 +24,15 @@
 
     body {
       background-color: var(--background);
-      color: var(--text);
+      color: #2A227D;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
     header {
-      background-color: var(--background);
-      color: var(--accent);
+      background-color: #808080;
+      color: #2A227D;
       padding: 60px 20px;
       text-align: center;
       border-bottom: 2px solid var(--accent);
@@ -48,7 +48,7 @@
     nav {
       position: sticky;
       top: 0;
-      background-color: var(--background);
+      background-color: #2A227D;
       text-align: center;
       padding: 10px;
       z-index: 999;
@@ -80,7 +80,7 @@
 
     h1,
     h2 {
-      color: var(--accent);
+      color: #4FC4CF;
     }
 
     footer {
@@ -149,7 +149,7 @@
 <body onload="AOS.init();">
 
   <header>
-    <img src="your_picture.jpg" alt="Ramlah Munir"> <!-- Add your picture file here -->
+    <img src="profilePic.jpeg" alt="Ramlah Munir"> <!-- Add your picture file here -->
     <h1>Ramlah Munir</h1>
     <p>Wah Cantt, Pakistan | its.ramlahmunir@gmail.com | +92 326 0518310</p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">www.linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7" style="color: var(--accent);">github.com/Ramlah7</a></p>
@@ -190,6 +190,18 @@
     <section class="section" id="projects">
       <h2>Projects</h2>
 
+      <div class="project-section" id="LiveNewsModule">
+        <h3>LiveNewsModule – A Module in Civic participation app</h3>
+        <div class="slideshow">
+          <div><img src="LiveNewsUpdte1.png" alt="LiveNewsUpdate Image 1"></div>
+          <div><img src="LiveNewsUpdate2.png" alt="LiveNewsUpdate Image 2"></div>
+          <div><img src="LiveNewsUpdate3.png" alt="LiveNewsUpdate Image 3"></div>
+        </div>
+        <div class="project-details">
+          <p>Built with Python and PyQt using Qt Designer. Uses feedparser to fetch latest news from genuine websites like Dawn_News, The News, BBc and al-jazeera.</p>
+          <p>LiveNewsUpdate is part of a civic participation system made in my civics and community engagement course as a group project which helps users to actively engage with community</p>
+        </div>
+      </div>
       <div class="project-section" id="mindmate">
         <h3>MindMate – AI-Powered Mental Health Chatbot</h3>
         <div class="slideshow">
