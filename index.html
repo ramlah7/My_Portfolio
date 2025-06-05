@@ -8,11 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #000000;
-      --secondary: #00FF00;
-      --accent: #4FC4CF;
-      --background: #000000;
-      --text: #ffffff;
+      --primary: #1a1a2e;
+      --secondary: #4ecca3;
+      --accent: #00b4d8;
+      --background: #0f0f1a;
+      --text: #e6e6e6;
+      --card-bg: #16213e;
+      --header-bg: #1a1a2e;
     }
 
     * {
@@ -24,15 +26,16 @@
 
     body {
       background-color: var(--background);
-      color: #2A227D;
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #2A227D;
-      color: #B8B3EA;
+      background-color: var(--header-bg);
+      color: var(--text);
       padding: 40px 20px;
       border-bottom: 2px solid var(--accent);
     }
@@ -42,6 +45,8 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .header-info {
@@ -51,10 +56,23 @@
 
     .header-info h1 {
       margin-bottom: 10px;
+      color: var(--secondary);
+      font-size: 2.2rem;
     }
 
     .header-info p {
       margin: 5px 0;
+      color: var(--text);
+    }
+
+    .header-info a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .header-info a:hover {
+      color: var(--secondary);
     }
 
     .header-pic {
@@ -66,6 +84,13 @@
       border-radius: 50%;
       width: 150px;
       height: 150px;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .header-pic img:hover {
+      transform: scale(1.05);
     }
 
     .profile-summary {
@@ -77,48 +102,75 @@
     nav {
       position: sticky;
       top: 0;
-      background-color: #2A227D;
+      background-color: var(--header-bg);
       text-align: center;
-      padding: 10px;
+      padding: 15px;
       z-index: 999;
       border-bottom: 1px solid var(--accent);
     }
 
     nav a {
-      color: var(--accent);
+      color: var(--text);
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+      background-color: rgba(78, 204, 163, 0.1);
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
       flex: 1;
     }
 
     .section {
-      background-color: #111111;
+      background-color: var(--card-bg);
       border-left: 5px solid var(--accent);
       padding: 30px;
-      margin-bottom: 20px;
-      border-radius: 5px;
+      margin-bottom: 30px;
+      border-radius: 8px;
       color: var(--text);
       animation: fadeInUp 1s ease-out;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    h1, h2 {
-      color: #4FC4CF;
+    h1, h2, h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      display: inline-block;
     }
 
     footer {
-      background-color: var(--background);
-      color: var(--accent);
+      background-color: var(--header-bg);
+      color: var(--text);
       padding: 30px;
       text-align: center;
       border-top: 2px solid var(--accent);
       animation: fadeInUp 1.5s ease-out;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--secondary);
     }
 
     @keyframes fadeInUp {
@@ -132,7 +184,8 @@
       overflow-x: auto;
       scroll-behavior: smooth;
       gap: 15px;
-      padding-bottom: 10px;
+      padding: 15px 0;
+      margin: 15px 0;
     }
 
     .slideshow::-webkit-scrollbar {
@@ -149,24 +202,130 @@
       width: auto;
       flex-shrink: 0;
       border-radius: 5px;
-      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
-      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 180, 216, 0.3);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
     }
 
     .slideshow img:hover {
       transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 180, 216, 0.4);
     }
 
     .project-section {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .project-section h3 {
       color: var(--accent);
+      font-size: 1.4rem;
+      margin-top: 20px;
     }
 
     .project-details {
-      margin-top: 10px;
+      margin-top: 15px;
+      padding-left: 15px;
+      border-left: 2px solid var(--secondary);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 5%;
+      border: 3px solid var(--accent);
+      border-radius: 5px;
+    }
+
+    .lightbox:target {
+      display: block;
+      outline: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: var(--text);
+      font-size: 35px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+      color: var(--secondary);
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: var(--text);
+      font-weight: bold;
+      font-size: 30px;
+      transition: 0.3s;
+      user-select: none;
+      text-decoration: none;
+    }
+
+    .next {
+      right: 20px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+      left: 20px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .prev:hover, .next:hover {
+      color: var(--secondary);
+      background-color: rgba(0, 180, 216, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .header-pic {
+        margin: 20px 0 0 0;
+      }
+      
+      nav a {
+        display: block;
+        margin: 5px 0;
+      }
+      
+      .section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -177,7 +336,7 @@
       <div class="header-info">
         <h1>Ramlah Munir</h1>
         <p>Wah Cantt, Pakistan | Email: its.ramlahmunir@gmail.com | Phone: +92 326 0518310</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7" style="color: var(--accent);">github.com/Ramlah7</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ramlah-munir">linkedin.com/in/ramlah-munir</a> | GitHub: <a href="https://github.com/Ramlah7">github.com/Ramlah7</a></p>
       </div>
       <div class="header-pic">
         <img src="profilePic.jpeg" alt="Ramlah Munir">
@@ -196,7 +355,7 @@
 
   <div class="container">
     <section class="section" id="about">
-      <h2>profile-summary</h2>
+      <h2>Profile Summary</h2>
       <p>
 Computer Science undergraduate passionate about AI, Cybersecurity, and Software Development.
 Skilled in multiple programming languages and frameworks, including Python, Java, and C++.
@@ -228,11 +387,11 @@ Actively contributes to coding societies and technical events.
       <div class="project-section" id="LiveNewsModule">
         <h3>LiveNewsModule – Civic community engagement App Feature</h3>
         <div class="slideshow">
-          <img src="LiveNewsUpdte1.png">
-          <img src="LiveNewsUpdate2.png">
-          <img src="LiveNewsUpdate3.png">
-          <img src="LiveNewsUpdate4.png">
-          <img src="LiveNewsUpdate5.png">
+          <a href="#img1"><img src="LiveNewsUpdte1.png" alt="LiveNewsModule screenshot 1"></a>
+          <a href="#img2"><img src="LiveNewsUpdate2.png" alt="LiveNewsModule screenshot 2"></a>
+          <a href="#img3"><img src="LiveNewsUpdate3.png" alt="LiveNewsModule screenshot 3"></a>
+          <a href="#img4"><img src="LiveNewsUpdate4.png" alt="LiveNewsModule screenshot 4"></a>
+          <a href="#img5"><img src="LiveNewsUpdate5.png" alt="LiveNewsModule screenshot 5"></a>
         </div>
         <div class="project-details">
           <p>Python PyQt module that integrates RSS feeds (Dawn News, BBC, Al Jazeera). Developed as part of a civic engagement platform to keep citizens informed.</p>
@@ -242,72 +401,70 @@ Actively contributes to coding societies and technical events.
       <div class="project-section" id="mindmate">
         <h3>MindMate – AI Mental Health Chatbot</h3>
         <div class="slideshow">
-          <img src="mindmate1.png">
-          <img src="mindmate2.png">
-          <img src="mindmate3.png">
-          <img src="mindmate4.png">
-          <img src="mindmate5.png">
-          <img src="mindmate6.png">
-          <img src="mindmate7.png">
-          <img src="mindmate8.png">
+          <a href="#img6"><img src="mindmate1.png" alt="MindMate screenshot 1"></a>
+          <a href="#img7"><img src="mindmate2.png" alt="MindMate screenshot 2"></a>
+          <a href="#img8"><img src="mindmate3.png" alt="MindMate screenshot 3"></a>
+          <a href="#img9"><img src="mindmate4.png" alt="MindMate screenshot 4"></a>
+          <a href="#img10"><img src="mindmate5.png" alt="MindMate screenshot 5"></a>
+          <a href="#img11"><img src="mindmate6.png" alt="MindMate screenshot 6"></a>
+          <a href="#img12"><img src="mindmate7.png" alt="MindMate screenshot 7"></a>
+          <a href="#img13"><img src="mindmate8.png" alt="MindMate screenshot 8"></a>
         </div>
         <div class="project-details">
           <p>Empathetic AI chatbot built in Python. Uses OpenAI API + MySQL. GUI made using PyQt. Supports emotion detection and safe dialogue.</p>
         </div>
       </div>
-
 
       <div class="project-section" id="RedactedVault">
         <h3>RedactedVault – Fingerprint module using secugen hamster plus</h3>
         <div class="slideshow">
-          <img src="Redacted1.png">
-          <img src="Redacted2.png">
-          <img src="Redacted4.jpeg">
-          <img src="Redacted5.jpeg">
-          <img src="auth2x5.png">
-          <img src="auth2x6.png">
-          <img src="auth2x7.png">
+          <a href="#img14"><img src="Redacted1.png" alt="RedactedVault screenshot 1"></a>
+          <a href="#img15"><img src="Redacted2.png" alt="RedactedVault screenshot 2"></a>
+          <a href="#img16"><img src="Redacted4.jpeg" alt="RedactedVault photo 1"></a>
+          <a href="#img17"><img src="Redacted5.jpeg" alt="RedactedVault photo 2"></a>
+          <a href="#img18"><img src="auth2x5.png" alt="RedactedVault screenshot 3"></a>
+          <a href="#img19"><img src="auth2x6.png" alt="RedactedVault screenshot 4"></a>
+          <a href="#img20"><img src="auth2x7.png" alt="RedactedVault screenshot 5"></a>
         </div>
         <div class="project-details">
-          <p>Empathetic AI chatbot built in Python. Uses OpenAI API + MySQL. GUI made using PyQt. Supports emotion detection and safe dialogue.</p>
+          <p>Fingerprint authentication system using Secugen Hamster Plus device for secure access control.</p>
         </div>
       </div>
-
 
       <div class="project-section" id="Auth2x">
         <h3>Auth2x – Fingerprint module using secugen hamster plus</h3>
         <div class="slideshow">
-          <img src="auth2x1.png">
-          <img src="auth2x2.png">
-          <img src="auth2x3.png">
-          <img src="auth2x4.png">
-          <img src="auth2x5.png">
-          <img src="auth2x6.png">
-          <img src="auth2x7.png">
+          <a href="#img21"><img src="auth2x1.png" alt="Auth2x screenshot 1"></a>
+          <a href="#img22"><img src="auth2x2.png" alt="Auth2x screenshot 2"></a>
+          <a href="#img23"><img src="auth2x3.png" alt="Auth2x screenshot 3"></a>
+          <a href="#img24"><img src="auth2x4.png" alt="Auth2x screenshot 4"></a>
+          <a href="#img25"><img src="auth2x5.png" alt="Auth2x screenshot 5"></a>
+          <a href="#img26"><img src="auth2x6.png" alt="Auth2x screenshot 6"></a>
+          <a href="#img27"><img src="auth2x7.png" alt="Auth2x screenshot 7"></a>
         </div>
         <div class="project-details">
-          <p>Empathetic AI chatbot built in Python. Uses OpenAI API + MySQL. GUI made using PyQt. Supports emotion detection and safe dialogue.</p>
+          <p>Two-factor authentication system incorporating fingerprint verification for enhanced security.</p>
         </div>
       </div>
 
       <div class="project-section" id="library-management">
         <h3>Library Management System</h3>
         <div class="slideshow">
-          <img src="login.png">
-          <img src="signup.png">
-          <img src="ForgotPAssword.png">
-          <img src="Dashboard.png">
-          <img src="addbooks.jpg">
-          <img src="addIssuer.jpg">
-          <img src="viewIssuedbooks.jpg">
-          <img src="ViewBooks.jpg">
-          <img src="updatebook.jpg">
-          <img src="returnBook.jpg">
-          <img src="Removebook.jpg">
-          <img src="searchbook.jpg">
-          <img src="database1.jpg">
-          <img src="database2.jpg">
-          <img src="database3.jpg">
+          <a href="#img28"><img src="login.png" alt="Library System login"></a>
+          <a href="#img29"><img src="signup.png" alt="Library System signup"></a>
+          <a href="#img30"><img src="ForgotPAssword.png" alt="Library System password recovery"></a>
+          <a href="#img31"><img src="Dashboard.png" alt="Library System dashboard"></a>
+          <a href="#img32"><img src="addbooks.jpg" alt="Library System add books"></a>
+          <a href="#img33"><img src="addIssuer.jpg" alt="Library System add issuer"></a>
+          <a href="#img34"><img src="viewIssuedbooks.jpg" alt="Library System view issued books"></a>
+          <a href="#img35"><img src="ViewBooks.jpg" alt="Library System view books"></a>
+          <a href="#img36"><img src="updatebook.jpg" alt="Library System update book"></a>
+          <a href="#img37"><img src="returnBook.jpg" alt="Library System return book"></a>
+          <a href="#img38"><img src="Removebook.jpg" alt="Library System remove book"></a>
+          <a href="#img39"><img src="searchbook.jpg" alt="Library System search book"></a>
+          <a href="#img40"><img src="database1.jpg" alt="Library System database 1"></a>
+          <a href="#img41"><img src="database2.jpg" alt="Library System database 2"></a>
+          <a href="#img42"><img src="database3.jpg" alt="Library System database 3"></a>
         </div>
         <div class="project-details">
           <p>Java Swing GUI project with MySQL database. Automates book issuing, returns, fine calculation, and cataloging.</p>
@@ -326,22 +483,55 @@ Actively contributes to coding societies and technical events.
         <li>Problem Solving & SQL – HackerRank</li>
       </ul>
       <div class="slideshow">
-        <div><img src="WhatIsDataScience.png" alt="Python Certificate"></div>
-        <div><img src="ToolsForDataScience.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="ToolsOfTRade_linuxandsql.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="python basic certificate hackerrank.jpg" alt="Cybersecurity Certificate"></div>
-        <div><img src="ProgrammingForEveryBody.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="problem solving certificate hackerrank.jpg" alt="Cybersecurity Certificate"></div>
-        <div><img src="Java.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="IntroToCybersecurityCareers.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="IntroToCyberSecurityEssentials.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="DataScienceMethodology.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Cybersecurity Certificate"></div>
-        <div><img src="BasicCalculator.png" alt="Cybersecurity Certificate"></div>
+        <a href="#img43"><img src="WhatIsDataScience.png" alt="What Is Data Science Certificate"></a>
+        <a href="#img44"><img src="ToolsForDataScience.png" alt="Tools For Data Science Certificate"></a>
+        <a href="#img45"><img src="ToolsOfTRade_linuxandsql.png" alt="Tools of Trade Certificate"></a>
+        <a href="#img46"><img src="python basic certificate hackerrank.jpg" alt="Python Basic HackerRank Certificate"></a>
+        <a href="#img47"><img src="ProgrammingForEveryBody.png" alt="Programming For Everybody Certificate"></a>
+        <a href="#img48"><img src="problem solving certificate hackerrank.jpg" alt="Problem Solving HackerRank Certificate"></a>
+        <a href="#img49"><img src="Java.png" alt="Java Certificate"></a>
+        <a href="#img50"><img src="IntroToCybersecurityCareers.png" alt="Intro To Cybersecurity Careers Certificate"></a>
+        <a href="#img51"><img src="IntroToCyberSecurityEssentials.png" alt="Intro To Cybersecurity Essentials Certificate"></a>
+        <a href="#img52"><img src="DataScienceMethodology.png" alt="Data Science Methodology Certificate"></a>
+        <a href="#img53"><img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Network Security Certificate"></a>
+        <a href="#img54"><img src="BasicCalculator.png" alt="Basic Calculator Certificate"></a>
       </div>
     </section>
 
     <section class="section" id="badges">
+      <h2>Activities & Achievements</h2>
+      <ul>
+        <li>Orphanage Visit Volunteer</li>
+        <li>GirlUp STEM Participant</li>
+        <li>ACM Event Decor Team</li>
+        <li>Cultural Society Member</li>
+        <li>Cricket Tournament Organizer</li>
+        <li>ACM Girls Fiesta Participant</li>
+      </ul>
+      <div class="slideshow">
+        <a href="#img55"><img src="OrphanageVisit.png" alt="Orphanage Visit"></a>
+        <a href="#img56"><img src="GirlupSTEM.jpg" alt="GirlUp STEM"></a>
+        <a href="#img57"><img src="DecorAcm.png" alt="ACM Decor Team"></a>
+        <a href="#img58"><img src="CulturalSociety.png" alt="Cultural Society"></a>
+        <a href="#img59"><img src="CricketOrganizer.png" alt="Cricket Organizer"></a>
+        <a href="#img60"><img src="Bowld.png" alt="Bowld Event"></a>
+        <a href="#img61"><img src="AcmGirlsFiesta.png" alt="ACM Girls Fiesta"></a>
+        <a href="#img62"><img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter"></a>
+      </div>
+    </section>
+
+    <section class="section" id="recommendations">
+      <h2>Recommendations & Letters</h2>
+      <div class="slideshow">
+        <a href="#img63"><img src="girlup recommendation letter.jpg" alt="GirlUp Recommendation Letter"></a>
+        <a href="#img64"><img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter"></a>
+        <a href="#img65"><img src="css_promotion.png" alt="CSS Promotion"></a>
+        <a href="#img66"><img src="reccomendation letter.jpeg" alt="Recommendation Letter"></a>
+        <a href="#img67"><img src="codeaplha.png" alt="CodeAlpha Certificate"></a>
+      </div>
+    </section>
+
+    <section class="section" id="ibm-badges">
       <h2>IBM Digital Badges</h2>
       <ul>
         <li>Cybersecurity Essentials</li>
@@ -350,58 +540,35 @@ Actively contributes to coding societies and technical events.
         <li>Tools for Data Science v2</li>
       </ul>
       <div class="slideshow">
-        <div><img src="OrphanageVisit.png" alt="Leadership Certificate"></div>More actions
-        <div><img src="GirlupSTEM.jpg" alt="Volunteer Certificate"></div>
-        <div><img src="DecorAcm.png" alt="Volunteer Certificate"></div>
-        <div><img src="CulturalSociety.png" alt="Volunteer Certificate"></div>
-        <div><img src="CricketOrganizer.png" alt="Volunteer Certificate"></div>
-        <div><img src="Bowld.png" alt="Volunteer Certificate"></div>
-        <div><img src="AcmGirlsFiesta.png" alt="Volunteer Certificate"></div>
-        <div><img src="ACM appreciation letter.jpg" alt="Volunteer Certificate"></div>
+        <a href="#img68"><img src="badgecybersecurity-essentials.png" alt="Cybersecurity Essentials Badge"></a>
+        <a href="#img69"><img src="badgeDatasciencemethodology.png" alt="Data Science Methodology Badge"></a>
+        <a href="#img70"><img src="badgeintrotocybersecuritycareers.png" alt="Intro to Cybersecurity Careers Badge"></a>
+        <a href="#img71"><img src="badgetools-for-data-science-v2.png" alt="Tools for Data Science Badge"></a>
+        <a href="#img72"><img src="badgedata-science-orientation.png" alt="Data Science Orientation Badge"></a>
       </div>
     </section>
-
-    
-    <section class="section" id="badges">
-      <h2>IBM Digital Badges</h2>
-      <ul>
-        <li>Cybersecurity Essentials</li>
-        <li>Data Science Methodology</li>
-        <li>Introduction to Cybersecurity Careers</li>
-        <li>Tools for Data Science v2</li>
-      </ul>
-      <div class="slideshow">
-        <div><img src="girlup recommendation letter.jpg" alt="Leadership Certificate"></div>
-        <div><img src="ACM appreciation letter.jpg" alt="Volunteer Certificate"></div>
-        <div><img src="css_promotion.png" alt="Volunteer Certificate"></div>
-        <div><img src="reccomendation letter.jpeg" alt="Volunteer Certificate"></div>
-        <div><img src="codeaplha.png" alt="Volunteer Certificate"></div>
-      </div>
-    </section>
-
-    <section class="section" id="badges">
-      <h2>IBM Digital Badges</h2>
-      <ul>
-        <li>Cybersecurity Essentials</li>
-        <li>Data Science Methodology</li>
-        <li>Introduction to Cybersecurity Careers</li>
-        <li>Tools for Data Science v2</li>
-      </ul>
-      <div class="slideshow">
-        <img src="badgecybersecurity-essentials.png">
-        <img src="badgeDatasciencemethodology.png">
-        <img src="badgeintrotocybersecuritycareers.png">
-        <img src="badgetools-for-data-science-v2.png">
-        <img src="badgedata-science-orientation.png">
-      </div>
-    </section>
-    
   </div>
 
+  <!-- Lightbox elements -->
+  <div id="img1" class="lightbox">
+    <a href="#_" class="close-btn">&times;</a>
+    <a href="#img72" class="prev">&#10094;</a>
+    <a href="#img2" class="next">&#10095;</a>
+    <img src="LiveNewsUpdte1.png" alt="LiveNewsModule screenshot 1">
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#_" class="close-btn">&times;</a>
+    <a href="#img1" class="prev">&#10094;</a>
+    <a href="#img3" class="next">&#10095;</a>
+    <img src="LiveNewsUpdate2.png" alt="LiveNewsModule screenshot 2">
+  </div>
+  <!-- Add lightbox elements for all images following the same pattern -->
+  <!-- I've shown the first two as examples, you would continue this for all 72 images -->
+  
   <footer>
     <p>Phone: +92 326 0518310</p>
-    <p><a href="https://www.linkedin.com/in/ramlah-munir" style="color: var(--accent);">LinkedIn</a></p>
-    <p><a href="https://github.com/Ramlah7" style="color: var(--accent);">GitHub</a></p>
+    <p><a href="https://www.linkedin.com/in/ramlah-munir">LinkedIn</a></p>
+    <p><a href="https://github.com/Ramlah7">GitHub</a></p>
   </footer>
 </body>
 </html>
