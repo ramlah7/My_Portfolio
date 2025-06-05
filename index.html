@@ -124,6 +124,17 @@
       background-color: rgba(78, 204, 163, 0.1);
     }
 
+        /* Add padding to sections to account for fixed nav */
+    section {
+      scroll-margin-top: 80px; /* This creates space when scrolling to section */
+      padding-top: 30px; /* Additional padding at the top of each section */
+    }
+
+    /* Adjust the first section to account for header */
+    #about {
+      scroll-margin-top: 120px; /* More space for first section */
+    }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -215,6 +226,10 @@
     .project-section {
       margin-bottom: 40px;
     }
+    .project-section {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #808080; /* Optional subtle line */
+}
 
     .project-section h3 {
       color: var(--accent);
@@ -225,7 +240,7 @@
     .project-details {
       margin-top: 15px;
       padding-left: 15px;
-      border-left: 2px solid var(--secondary);
+      border-left: 2px solid #808080;
     }
 
     ul {
@@ -322,6 +337,29 @@
         display: block;
         margin: 5px 0;
       }
+
+      .github-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background-color: var(--secondary);
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid var(--secondary);
+    }
+
+    .github-link:hover {
+      background-color: transparent;
+      color: var(--secondary);
+    }
+
+    .github-icon {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
       
       .section {
         padding: 20px;
@@ -370,14 +408,15 @@ Actively contributes to coding societies and technical events.
         <li>Programming: Python, Java, C++, MySQL, HTML</li>
         <li>GUI Development: PyQt (Qt Designer), Tkinter, Java Swing</li>
         <li>Areas of Interest: AI, Cybersecurity, NLP</li>
-        <li>Tools & Platforms: VS Code, IntelliJ, PyCharm, Git, GitHub</li>
+        <li>Softwares & Platforms: Qt designer, Microsoft office suite, Git, GitHub</li>
+        <li>IDEs: VS Code, IntelliJ, Netbeans, Codeblocks, Devc++ PyCharm, Qt Creator, Spyder</li>
         <li>Soft Skills: Leadership, Communication, Teamwork</li>
       </ul>
     </section>
 
     <section class="section" id="education">
       <h2>Education</h2>
-      <p><strong>BS in Computer Science</strong> – COMSATS University, Wah Campus (2023–Present) – CGPA: 3.48</p>
+      <p><strong>BS in Computer Science</strong> – COMSATS University, Wah Campus (2023–2027) </p>
       <p><strong>Intermediate in Computer Science</strong> – Base College, Wah (2023)</p>
     </section>
 
@@ -394,7 +433,14 @@ Actively contributes to coding societies and technical events.
           <a href="#img5"><img src="LiveNewsUpdate5.png" alt="LiveNewsModule screenshot 5"></a>
         </div>
         <div class="project-details">
-          <p>Python PyQt module that integrates RSS feeds (Dawn News, BBC, Al Jazeera). Developed as part of a civic engagement platform to keep citizens informed.</p>
+          <p>The Civic Participation System is a community-based platform designed to engage citizens in social and civic activities, fostering awareness and encouraging participation in governance and societal matters. This project incorporates multiple modules, each designed for a specific function. The News Module is one of the core components, which dynamically fetches and displays the latest news from top news outlets.The News Module allows users to stay updated on the latest headlines with a clean, easy-to-use interface. The module is built using PyQt5 for the GUI and Python to handle backend functionality, including fetching news data from various RSS feeds.</p>
+        <a href="https://github.com/Ramlah7/LiveNewsModule" class="github-link" target="_blank">
+      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
+        
         </div>
       </div>
 
@@ -411,7 +457,13 @@ Actively contributes to coding societies and technical events.
           <a href="#img13"><img src="mindmate8.png" alt="MindMate screenshot 8"></a>
         </div>
         <div class="project-details">
-          <p>Empathetic AI chatbot built in Python. Uses OpenAI API + MySQL. GUI made using PyQt. Supports emotion detection and safe dialogue.</p>
+          <p>MindMate is a desktop-based mental health chatbot application designed to provide emotionally supportive conversations through a custom-trained language model. Developed in Python using PyQt5 for its user interface and MySQL for chat session storage, MindMate uses a fine-tuned version of DialoGPT-small (named mindmate_dialo) as its core language model. Unlike generic chatbots, MindMate includes structured session management, text normalization, and a local, offline-friendly conversational engine tailored for reflective mental health dialogues.</p>
+        <a href="https://github.com/Ramlah7/Mental-Health-Chatbot-AI" class="github-link" target="_blank">
+      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
         </div>
       </div>
 
@@ -427,7 +479,13 @@ Actively contributes to coding societies and technical events.
           <a href="#img20"><img src="auth2x7.png" alt="RedactedVault screenshot 5"></a>
         </div>
         <div class="project-details">
-          <p>Fingerprint authentication system using Secugen Hamster Plus device for secure access control.</p>
+          <p>RedactedVault is a stealthy, secure vault application disguised as a regular calculator. It looks innocent on the surface, but when a secret code is entered, it unlocks a hidden vault protected by biometric authentication (Face+Fingerprint). This app is designed for privacy-focused users who want their files stored securely and discreetly using AES encryption, facial recognition, and fingerprint verification.</p>
+        <a href="https://github.com/C0deCrypt/RedactedVault" class="github-link" target="_blank">
+      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
         </div>
       </div>
 
@@ -443,7 +501,13 @@ Actively contributes to coding societies and technical events.
           <a href="#img27"><img src="auth2x7.png" alt="Auth2x screenshot 7"></a>
         </div>
         <div class="project-details">
-          <p>Two-factor authentication system incorporating fingerprint verification for enhanced security.</p>
+          <p>Auth2X is a dual-mode biometric authentication system that supports:Face recognition (via OpenCV-based facial encoding) and Fingerprint matching (via SecuGen Hamster Plus and custom minutiae comparison)It supports encrypted storage of biometric data using Fernet AES encryption and integrates with a Tkinter GUI for both registration and authentication.</p>
+        <a href=" https://github.com/C0deCrypt/Auth2X" class="github-link" target="_blank">
+      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
         </div>
       </div>
 
@@ -467,7 +531,13 @@ Actively contributes to coding societies and technical events.
           <a href="#img42"><img src="database3.jpg" alt="Library System database 3"></a>
         </div>
         <div class="project-details">
-          <p>Java Swing GUI project with MySQL database. Automates book issuing, returns, fine calculation, and cataloging.</p>
+          <p>The Library Management System is a user-friendly Java-based desktop application developed using NetBeans. Designed to simplify the operations of a library, this system allows for the management of books and issuers (library members). It includes essential features for day-to-day library management, such as adding, deleting, updating, and searching for books and issuers, along with issuing and returning books. The application also offers a comprehensive transaction management system, tracking book issuance and returns with due dates, making it easy to manage library records efficiently.</p>
+        <a href="https://github.com/Ramlah7/library-management-system/tree/master" class="github-link" target="_blank">
+      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View on GitHub
+    </a>
         </div>
       </div>
     </section>
@@ -476,11 +546,20 @@ Actively contributes to coding societies and technical events.
       <h2>Certificates</h2>
       <h3>Technical Certifications</h3>
       <ul>
-        <li>Python Programming – CodeAlpha Internship</li>
+        <li>What is DataScience – IBM</li>
+        <li>Tools for Data Science v2 – IBM</li>
+        <li>Tools of trade_ linux and sql – GOOGLE</li>
+        <li>Python Basics – HackerRank</li>
+        <li>Python Functions, Files, and Dictionaries – University of Michigan</li>
         <li>Programming for Everybody – University of Michigan</li>
-        <li>Cybersecurity Essentials – IBM</li>
-        <li>Tools for Data Science – IBM</li>
-        <li>Problem Solving & SQL – HackerRank</li>
+        <li>Problem Solving – HackerRank</li>
+        <li>Java Basics – HackerRank</li>
+        <li>Cybersecurity Essentials – Coursera</li>
+        <li>Introduction to Cybersecurity (Honors) – IBM</li>
+        <li>Data Science Methodology – IBM</li>
+        <li>Connect and Protect: Networks and Network Security – Google</li>
+        <li>SQL Basics – HackerRank</li>
+        
       </ul>
       <div class="slideshow">
         <a href="#img43"><img src="WhatIsDataScience.png" alt="What Is Data Science Certificate"></a>
@@ -503,9 +582,10 @@ Actively contributes to coding societies and technical events.
       <ul>
         <li>Orphanage Visit Volunteer</li>
         <li>GirlUp STEM Participant</li>
-        <li>ACM Event Decor Team</li>
-        <li>Cultural Society Member</li>
-        <li>Cricket Tournament Organizer</li>
+        <li>ACM Girls Fiesta Decor Team</li>
+        <li>Cultural Society Member(cs dep head)</li>
+        <li>Girls Cricket match Organizer</li>
+        <li>BOWLD international conference(women's day 2025)</li>
         <li>ACM Girls Fiesta Participant</li>
       </ul>
       <div class="slideshow">
@@ -521,7 +601,7 @@ Actively contributes to coding societies and technical events.
     </section>
 
     <section class="section" id="recommendations">
-      <h2>Recommendations & Letters</h2>
+      <h2>Honor & Recommendations Letters</h2>
       <div class="slideshow">
         <a href="#img63"><img src="girlup recommendation letter.jpg" alt="GirlUp Recommendation Letter"></a>
         <a href="#img64"><img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter"></a>
@@ -538,6 +618,7 @@ Actively contributes to coding societies and technical events.
         <li>Data Science Methodology</li>
         <li>Introduction to Cybersecurity Careers</li>
         <li>Tools for Data Science v2</li>
+        <li>DataScience Orientation</li>
       </ul>
       <div class="slideshow">
         <a href="#img68"><img src="badgecybersecurity-essentials.png" alt="Cybersecurity Essentials Badge"></a>
