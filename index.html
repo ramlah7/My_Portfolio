@@ -913,7 +913,7 @@
       </div>
 
       <div class="project-section" id="RedactedVault">
-  <h3>RedactedVault – Secure Vault with Hidden Biometric Access</h3>
+  <h3>RedactedVault – Fingerprint module</h3>
   <div class="slideshow">
     <a href="#img14"><img src="Redacted1.png" alt="RedactedVault screenshot 1"></a>
     <a href="#img15"><img src="Redacted2.png" alt="RedactedVault screenshot 2"></a>
@@ -1704,22 +1704,94 @@
   });
 </script>
 <script>
+// Back to top button functionality
+window.addEventListener('scroll', function() {
+  var backToTop = document.getElementById('backToTop');
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  if (!anchor.classList.contains('prev') && !anchor.classList.contains('next')) {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+      
+      // Update active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      this.classList.add('active');
+    });
+  }
+});
+
+// Lightbox navigation
+document.addEventListener('keydown', function(e) {
+  const lightbox = document.querySelector('.lightbox:target');
+  if (!lightbox) return;
+  
+  const prev = lightbox.querySelector('.prev');
+  const next = lightbox.querySelector('.next');
+  const close = lightbox.querySelector('.close-btn');
+  
+  switch(e.key) {
+    case 'ArrowLeft':
+      if (prev) prev.click();
+      break;
+    case 'ArrowRight':
+      if (next) next.click();
+      break;
+    case 'Escape':
+      if (close) close.click();
+      break;
+  }
+});
+
 // Handle lightbox clicks
-document.querySelectorAll('.slideshow a').forEach(link => {
+document.querySelectorAll('.slideshow a[href^="#img"]').forEach(link => {
   link.addEventListener('click', function(e) {
     e.preventDefault();
     const target = this.getAttribute('href');
     window.location.hash = target;
+    document.body.style.overflow = 'hidden';
   });
 });
 
-// Close lightbox when clicking outside image
+// Close lightbox when clicking outside image or on close button
 document.querySelectorAll('.lightbox').forEach(lb => {
   lb.addEventListener('click', function(e) {
-    if (e.target === this) {
-      document.querySelector('.close-btn').click();
+    if (e.target === this || e.target.classList.contains('close-btn')) {
+      window.location.hash = '#';
+      document.body.style.overflow = '';
     }
   });
+});
+
+// Handle prev/next clicks - this is the key fix
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('prev') || e.target.classList.contains('next')) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const currentImg = window.location.hash.replace('#img', '');
+    let imgNumber = parseInt(currentImg);
+    
+    if (e.target.classList.contains('prev')) {
+      imgNumber = imgNumber > 1 ? imgNumber - 1 : 72;
+    } else {
+      imgNumber = imgNumber < 72 ? imgNumber + 1 : 1;
+    }
+    
+    window.location.hash = `#img${imgNumber}`;
+  }
 });
 </script>
 </body>
