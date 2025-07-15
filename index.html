@@ -267,8 +267,6 @@
     }
     
 
-    
-
     #about {
       scroll-margin-top: 40px;
     }
@@ -339,17 +337,16 @@
     }
 
     footer::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(78, 204, 163, 0.1) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-  z-index: 0;
-}
-
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(78, 204, 163, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: 0;
+    }
 
     footer {
       background: linear-gradient(135deg, var(--header-bg) 0%, #16213e 100%);
@@ -358,9 +355,8 @@
       text-align: center;
       border-top: 2px solid var(--accent);
       animation: fadeInUp 1.5s ease-out;
-  position: relative;
-  overflow: hidden;
-
+      position: relative;
+      overflow: hidden;
     }
 
     .footer-content {
@@ -525,10 +521,16 @@
       color: var(--secondary);
     }
 
-    .github-link {
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .github-link,
+    .linkedin-link {
       display: inline-flex;
       align-items: center;
-      margin-top: 20px;
       padding: 10px 20px;
       background: linear-gradient(135deg, var(--secondary), var(--accent));
       color: var(--primary);
@@ -540,13 +542,15 @@
       box-shadow: 0 4px 15px rgba(78, 204, 163, 0.3);
     }
 
-    .github-link:hover {
+    .github-link:hover,
+    .linkedin-link:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(78, 204, 163, 0.4);
       background: linear-gradient(135deg, var(--accent), var(--secondary));
     }
 
-    .github-icon {
+    .github-icon,
+    .linkedin-icon {
       width: 18px;
       height: 18px;
       margin-right: 10px;
@@ -570,14 +574,13 @@
       transition: opacity 0.3s ease;
     }
 
-    .lightbox:target {
+    .lightbox.visible {
       display: flex;
       justify-content: center;
       align-items: center;
       opacity: 1;
       outline: none;
     }
-
 
     .lightbox img {
       max-width: 90%;
@@ -588,10 +591,10 @@
       animation: lightboxFadeIn 0.5s ease-out;
     }
 
- @keyframes lightboxFadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
+    @keyframes lightboxFadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
     .close-btn {
       position: absolute;
@@ -634,6 +637,7 @@
       justify-content: center;
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
     }
 
     .next {
@@ -682,6 +686,19 @@
       box-shadow: 0 8px 25px rgba(78, 204, 163, 0.4);
     }
 
+    /* Certificate and badge grid styles */
+    .certificate-grid, .activities-grid, .recommendations-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .certificate-category, .activities-list, .recommendations-list {
+      padding: 15px;
+      background: rgba(30, 30, 60, 0.5);
+      border-radius: 8px;
+    }
+
     /* Responsive styles */
     @media (max-width: 992px) {
       .header-info h1 {
@@ -694,6 +711,10 @@
       
       h3 {
         font-size: 1.4rem;
+      }
+
+      .certificate-grid, .activities-grid, .recommendations-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -777,6 +798,11 @@
         font-size: 16px;
         bottom: 20px;
         right: 20px;
+      }
+
+      .button-group {
+        flex-direction: column;
+        gap: 10px;
       }
     }
   </style>
@@ -869,141 +895,180 @@
     <section class="section" id="projects">
       <h2>Projects</h2>
 
-      <div class="project-section" id="LiveNewsModule">
+      <div class="project-section" id="civicEducationSystem">
         <h3>Civic Education Module – Civic community engagement App Feature</h3>
         <div class="slideshow">
-          <a href="#img73"><img src="civicEducation1.png" alt="LiveNewsModule screenshot 1"></a>
-          <a href="#img74"><img src="CivicEducation2.png" alt="LiveNewsModule screenshot 2"></a>
-          <a href="#img75"><img src="CivicEducation3.png" alt="LiveNewsModule screenshot 3"></a>
-          <a href="#img76"><img src="CivicEducation4.png" alt="LiveNewsModule screenshot 4"></a>
-          <a href="#img77"><img src="CivicEduaction5.png" alt="LiveNewsModule screenshot 5"></a>
+          <img src="civicEducation1.png" alt="CivicEducation Module screenshot 1">
+          <img src="CivicEducation2.png" alt="CivicEducation Module screenshot 2">
+          <img src="CivicEducation3.png" alt="CivicEducation Module screenshot 3">
+          <img src="CivicEducation4.png" alt="CivicEducation Module screenshot 4">
+          <img src="CivicEducation5.png" alt="CivicEducation Module screenshot 5">
         </div>
         <div class="project-details">
           <p>
-      The Civic Education System is a modern, AI-integrated desktop application that promotes civic awareness and social responsibility through an intuitive user interface. Built with Python and PyQt5, it offers structured topic navigation, real-time search, and the ability to chat with Google's Gemini API (models/gemini-2.0-flash) for instant civic-related assistance. The green-themed UI provides a clean and accessible learning experience.
-    </p>
-    <ul>
-      <li>Real-time topic search and interactive Gemini-powered chatbot</li>
-      <li>Seamless toggling between static civic content and chat mode</li>
-      <li>Data-driven design using a structured <code>topics.json</code> file</li>
-      <li>Smooth animated transitions with <code>QPropertyAnimation</code></li>
-      <li>Environment secured using dotenv for API key protection</li>
-    </ul>
-    <a href="https://github.com/Ramlah7/civic_education_module.git" class="github-link" target="_blank">
-      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      View on GitHub
-          </a>
+            The Civic Education System is a modern, AI-integrated desktop application that promotes civic awareness and social responsibility through an intuitive user interface. Built with Python and PyQt5, it offers structured topic navigation, real-time search, and the ability to chat with Google's Gemini API (models/gemini-2.0-flash) for instant civic-related assistance. The green-themed UI provides a clean and accessible learning experience.
+          </p>
+          <ul>
+            <li>Real-time topic search and interactive Gemini-powered chatbot</li>
+            <li>Seamless toggling between static civic content and chat mode</li>
+            <li>Data-driven design using a structured <code>topics.json</code> file</li>
+            <li>Smooth animated transitions with <code>QPropertyAnimation</code></li>
+            <li>Environment secured using dotenv for API key protection</li>
+          </ul>
+          <div class="button-group">
+            <a href="https://github.com/Ramlah7/civic_education_module.git" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="project-section" id="LiveNewsModule">
         <h3>LiveNewsModule – Civic community engagement App Feature</h3>
         <div class="slideshow">
-          <a href="#img1"><img src="LiveNewsUpdte1.png" alt="LiveNewsModule screenshot 1"></a>
-          <a href="#img2"><img src="LiveNewsUpdate2.png" alt="LiveNewsModule screenshot 2"></a>
-          <a href="#img3"><img src="LiveNewsUpdate3.png" alt="LiveNewsModule screenshot 3"></a>
-          <a href="#img4"><img src="LiveNewsUpdate4.png" alt="LiveNewsModule screenshot 4"></a>
-          <a href="#img5"><img src="LiveNewsUpdate5.png" alt="LiveNewsModule screenshot 5"></a>
+          <img src="LiveNewsUpdte1.png" alt="LiveNewsModule screenshot 1">
+          <img src="LiveNewsUpdate2.png" alt="LiveNewsModule screenshot 2">
+          <img src="LiveNewsUpdate3.png" alt="LiveNewsModule screenshot 3">
+          <img src="LiveNewsUpdate4.png" alt="LiveNewsModule screenshot 4">
+          <img src="LiveNewsUpdate5.png" alt="LiveNewsModule screenshot 5">
         </div>
         <div class="project-details">
           <p>The Civic Participation System is a community-based platform designed to engage citizens in social and civic activities, fostering awareness and encouraging participation in governance and societal matters. This project incorporates multiple modules, each designed for a specific function. The News Module is one of the core components, which dynamically fetches and displays the latest news from top news outlets.The News Module allows users to stay updated on the latest headlines with a clean, easy-to-use interface. The module is built using PyQt5 for the GUI and Python to handle backend functionality, including fetching news data from various RSS feeds.</p>
-          <a href="https://github.com/Ramlah7/LiveNewsModule" class="github-link" target="_blank">
-            <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            View on GitHub
-          </a>
+          <div class="button-group">
+            <a href="https://github.com/Ramlah7/LiveNewsModule" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="project-section" id="mindmate">
         <h3>MindMate – AI Mental Health Chatbot</h3>
         <div class="slideshow">
-          <a href="#img6"><img src="mindmate1.png" alt="MindMate screenshot 1"></a>
-          <a href="#img7"><img src="mindmate2.png" alt="MindMate screenshot 2"></a>
-          <a href="#img8"><img src="mindmate3.png" alt="MindMate screenshot 3"></a>
-          <a href="#img9"><img src="mindmate4.png" alt="MindMate screenshot 4"></a>
-          <a href="#img10"><img src="mindmate5.png" alt="MindMate screenshot 5"></a>
-          <a href="#img11"><img src="mindmate6.png" alt="MindMate screenshot 6"></a>
-          <a href="#img12"><img src="mindmate7.png" alt="MindMate screenshot 7"></a>
-          <a href="#img13"><img src="mindmate8.png" alt="MindMate screenshot 8"></a>
+          <img src="mindmate1.png" alt="MindMate screenshot 1">
+          <img src="mindmate2.png" alt="MindMate screenshot 2">
+          <img src="mindmate3.png" alt="MindMate screenshot 3">
+          <img src="mindmate4.png" alt="MindMate screenshot 4">
+          <img src="mindmate5.png" alt="MindMate screenshot 5">
+          <img src="mindmate6.png" alt="MindMate screenshot 6">
+          <img src="mindmate7.png" alt="MindMate screenshot 7">
+          <img src="mindmate8.png" alt="MindMate screenshot 8">
         </div>
         <div class="project-details">
           <p>MindMate is a desktop-based mental health chatbot application designed to provide emotionally supportive conversations through a custom-trained language model. Developed in Python using PyQt5 for its user interface and MySQL for chat session storage, MindMate uses a fine-tuned version of DialoGPT-small (named mindmate_dialo) as its core language model. Unlike generic chatbots, MindMate includes structured session management, text normalization, and a local, offline-friendly conversational engine tailored for reflective mental health dialogues.</p>
-          <a href="https://github.com/Ramlah7/Mental-Health-Chatbot-AI" class="github-link" target="_blank">
-            <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            View on GitHub
-          </a>
+          <div class="button-group">
+            <a href="https://github.com/Ramlah7/Mental-Health-Chatbot-AI" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="project-section" id="RedactedVault">
-  <h3>RedactedVault – Fingerprint module</h3>
-  <div class="slideshow">
-    <a href="#img14"><img src="Redacted1.png" alt="RedactedVault screenshot 1"></a>
-    <a href="#img15"><img src="Redacted2.png" alt="RedactedVault screenshot 2"></a>
-    <a href="#img16"><img src="Redacted4.jpeg" alt="RedactedVault photo 1"></a>
-    <a href="#img17"><img src="Redacted5.jpeg" alt="RedactedVault photo 2"></a>
-    <a href="#img18"><img src="auth2x5.png" alt="RedactedVault screenshot 3"></a>
-    <a href="#img19"><img src="auth2x6.png" alt="RedactedVault screenshot 4"></a>
-    <a href="#img20"><img src="auth2x7.png" alt="RedactedVault screenshot 5"></a>
-  </div>
-  <div class="project-details">
-    <p>RedactedVault is a stealth-mode secure vault application disguised as a fully functioning calculator. It serves privacy-conscious users by unlocking an AES-encrypted, biometric-protected (Face + Fingerprint) vault when a secret code is entered. Developed using Python, PyQt5, MySQL, and the SecuGen Hamster Plus fingerprint scanner, this app features face recognition via OpenCV and fingerprint matching via minutiae comparison. It ensures complete confidentiality for sensitive files and documents through dual-layer encryption and a deceptive UI design.</p>
-    <a href="https://github.com/C0deCrypt/RedactedVault" class="github-link" target="_blank">
-      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      View on GitHub
-    </a>
-  </div>
-</div>
-
+        <h3>RedactedVault – Fingerprint module</h3>
+        <div class="slideshow">
+          <img src="Redacted1.png" alt="RedactedVault screenshot 1">
+          <img src="Redacted2.png" alt="RedactedVault screenshot 2">
+          <img src="Redacted4.jpeg" alt="RedactedVault photo 1">
+          <img src="Redacted5.jpeg" alt="RedactedVault photo 2">
+          <img src="auth2x5.png" alt="RedactedVault screenshot 3">
+          <img src="auth2x6.png" alt="RedactedVault screenshot 4">
+          <img src="auth2x7.png" alt="RedactedVault screenshot 5">
+        </div>
+        <div class="project-details">
+          <p>RedactedVault is a stealth-mode secure vault application disguised as a fully functioning calculator. It serves privacy-conscious users by unlocking an AES-encrypted, biometric-protected (Face + Fingerprint) vault when a secret code is entered. Developed using Python, PyQt5, MySQL, and the SecuGen Hamster Plus fingerprint scanner, this app features face recognition via OpenCV and fingerprint matching via minutiae comparison. It ensures complete confidentiality for sensitive files and documents through dual-layer encryption and a deceptive UI design.</p>
+          <div class="button-group">
+            <a href="https://github.com/C0deCrypt/RedactedVault" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
 
       <div class="project-section" id="Auth2x">
         <h3>Auth2x – Fingerprint module using secugen hamster plus</h3>
         <div class="slideshow">
-          <a href="#img21"><img src="auth2x1.png" alt="Auth2x screenshot 1"></a>
-          <a href="#img22"><img src="auth2x2.png" alt="Auth2x screenshot 2"></a>
-          <a href="#img23"><img src="auth2x3.png" alt="Auth2x screenshot 3"></a>
-          <a href="#img24"><img src="auth2x4.png" alt="Auth2x screenshot 4"></a>
-          <a href="#img25"><img src="auth2x5.png" alt="Auth2x screenshot 5"></a>
-          <a href="#img26"><img src="auth2x6.png" alt="Auth2x screenshot 6"></a>
-          <a href="#img27"><img src="auth2x7.png" alt="Auth2x screenshot 7"></a>
+          <img src="auth2x1.png" alt="Auth2x screenshot 1">
+          <img src="auth2x2.png" alt="Auth2x screenshot 2">
+          <img src="auth2x3.png" alt="Auth2x screenshot 3">
+          <img src="auth2x4.png" alt="Auth2x screenshot 4">
+          <img src="auth2x5.png" alt="Auth2x screenshot 5">
+          <img src="auth2x6.png" alt="Auth2x screenshot 6">
+          <img src="auth2x7.png" alt="Auth2x screenshot 7">
         </div>
         <div class="project-details">
           <p>Auth2X is a dual-mode biometric authentication system that supports:Face recognition (via OpenCV-based facial encoding) and Fingerprint matching (via SecuGen Hamster Plus and custom minutiae comparison)It supports encrypted storage of biometric data using Fernet AES encryption and integrates with a Tkinter GUI for both registration and authentication.</p>
-        <a href=" https://github.com/C0deCrypt/Auth2X" class="github-link" target="_blank">
-      <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-      View on GitHub
-    </a>
+          <div class="button-group">
+            <a href="https://github.com/C0deCrypt/Auth2X" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
 
       <div class="project-section" id="library-management">
         <h3>Library Management System</h3>
         <div class="slideshow">
-          <a href="#img28"><img src="login.png" alt="Library System login"></a>
-          <a href="#img29"><img src="signup.png" alt="Library System signup"></a>
-          <a href="#img30"><img src="ForgotPAssword.png" alt="Library System password recovery"></a>
-          <a href="#img31"><img src="Dashboard.png" alt="Library System dashboard"></a>
-          <a href="#img32"><img src="addbooks.jpg" alt="Library System add books"></a>
-          <a href="#img33"><img src="addIssuer.jpg" alt="Library System add issuer"></a>
-          <a href="#img34"><img src="viewIssuedbooks.jpg" alt="Library System view issued books"></a>
-          <a href="#img35"><img src="ViewBooks.jpg" alt="Library System view books"></a>
-          <a href="#img36"><img src="updatebook.jpg" alt="Library System update book"></a>
-          <a href="#img37"><img src="returnBook.jpg" alt="Library System return book"></a>
-          <a href="#img38"><img src="Removebook.jpg" alt="Library System remove book"></a>
-          <a href="#img39"><img src="searchbook.jpg" alt="Library System search book"></a>
-          <a href="#img40"><img src="database1.jpg" alt="Library System database 1"></a>
-          <a href="#img41"><img src="database2.jpg" alt="Library System database 2"></a>
-          <a href="#img42"><img src="database3.jpg" alt="Library System database 3"></a>
+          <img src="login.png" alt="Library System login">
+          <img src="signup.png" alt="Library System signup">
+          <img src="ForgotPAssword.png" alt="Library System password recovery">
+          <img src="Dashboard.png" alt="Library System dashboard">
+          <img src="addbooks.jpg" alt="Library System add books">
+          <img src="addIssuer.jpg" alt="Library System add issuer">
+          <img src="viewIssuedbooks.jpg" alt="Library System view issued books">
+          <img src="ViewBooks.jpg" alt="Library System view books">
+          <img src="updatebook.jpg" alt="Library System update book">
+          <img src="returnBook.jpg" alt="Library System return book">
+          <img src="Removebook.jpg" alt="Library System remove book">
+          <img src="searchbook.jpg" alt="Library System search book">
+          <img src="database1.jpg" alt="Library System database 1">
+          <img src="database2.jpg" alt="Library System database 2">
+          <img src="database3.jpg" alt="Library System database 3">
         </div>
         <div class="project-details">
           <p>The Library Management System is a comprehensive Java-based desktop application developed using NetBeans that streamlines library operations. This robust system features:</p>
@@ -1016,628 +1081,128 @@
             <li>Intuitive dashboard with key metrics and quick access to features</li>
           </ul>
           <p>Built with Java Swing for the frontend and MySQL for data persistence, this system demonstrates strong skills in desktop application development and database management.</p>
-          <a href="https://github.com/Ramlah7/library-management-system/tree/master" class="github-link" target="_blank">
-            <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            View on GitHub
-          </a>
+          <div class="button-group">
+            <a href="https://github.com/Ramlah7/library-management-system/tree/master" class="github-link" target="_blank">
+              <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              View on GitHub
+            </a>
+            <a href="javascript:void(0)" class="linkedin-link" target="_blank">
+              <svg class="linkedin-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              View on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="certificates">
       <h2>Certifications & Achievements</h2>
-      <div class="certificate-grid">
-        <div class="certificate-category">
           <h3>Technical Certifications</h3>
-          <ul>
-            <li>What is DataScience – IBM</li>
-            <li>Tools for Data Science v2 – IBM</li>
-            <li>Tools of trade: Linux and SQL – Google</li>
-            <li>Python Basics – HackerRank</li>
-            <li>Python Functions, Files, and Dictionaries – University of Michigan</li>
-            <li>Programming for Everybody – University of Michigan</li>
-            <li>Problem Solving – HackerRank</li>
-            <li>Java Basics – HackerRank</li>
-            <li>Cybersecurity Essentials – Coursera</li>
-            <li>Introduction to Cybersecurity (Honors) – IBM</li>
-            <li>Data Science Methodology – IBM</li>
-            <li>Connect and Protect: Networks and Network Security – Google</li>
-            <li>SQL Basics – HackerRank</li>
-          </ul>
-        </div>
+        <ul>
+          <li>What is DataScience – IBM</li>
+          <li>Tools for Data Science v2 – IBM</li>
+          <li>Tools of trade: Linux and SQL – Google</li>
+          <li>Python Basics – HackerRank</li>
+          <li>Python Functions, Files, and Dictionaries – University of Michigan</li>
+          <li>Programming for Everybody – University of Michigan</li>
+          <li>Problem Solving – HackerRank</li>
+          <li>Java Basics – HackerRank</li>
+          <li>Cybersecurity Essentials – Coursera</li>
+          <li>Introduction to Cybersecurity (Honors) – IBM</li>
+          <li>Data Science Methodology – IBM</li>
+          <li>Connect and Protect: Networks and Network Security – Google</li>
+          <li>SQL Basics – HackerRank</li>
+        </ul>
         
-        <div class="slideshow-container">
           <div class="slideshow">
-            <a href="#img43"><img src="WhatIsDataScience.png" alt="What Is Data Science Certificate"></a>
-            <a href="#img44"><img src="ToolsForDataScience.png" alt="Tools For Data Science Certificate"></a>
-            <a href="#img45"><img src="ToolsOfTRade_linuxandsql.png" alt="Tools of Trade Certificate"></a>
-            <a href="#img46"><img src="python basic certificate hackerrank.jpg" alt="Python Basic HackerRank Certificate"></a>
-            <a href="#img47"><img src="ProgrammingForEveryBody.png" alt="Programming For Everybody Certificate"></a>
-            <a href="#img48"><img src="problem solving certificate hackerrank.jpg" alt="Problem Solving HackerRank Certificate"></a>
-            <a href="#img49"><img src="Java.png" alt="Java Certificate"></a>
-            <a href="#img50"><img src="IntroToCybersecurityCareers.png" alt="Intro To Cybersecurity Careers Certificate"></a>
-            <a href="#img51"><img src="IntroToCyberSecurityEssentials.png" alt="Intro To Cybersecurity Essentials Certificate"></a>
-            <a href="#img52"><img src="DataScienceMethodology.png" alt="Data Science Methodology Certificate"></a>
-            <a href="#img53"><img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Network Security Certificate"></a>
-            <a href="#img54"><img src="BasicCalculator.png" alt="Basic Calculator Certificate"></a>
+            <img src="WhatIsDataScience.png" alt="What Is Data Science Certificate">
+            <img src="ToolsForDataScience.png" alt="Tools For Data Science Certificate">
+            <img src="ToolsOfTRade_linuxandsql.png" alt="Tools of Trade Certificate">
+            <img src="python basic certificate hackerrank.jpg" alt="Python Basic HackerRank Certificate">
+            <img src="ProgrammingForEveryBody.png" alt="Programming For Everybody Certificate">
+            <img src="problem solving certificate hackerrank.jpg" alt="Problem Solving HackerRank Certificate">
+            <img src="Java.png" alt="Java Certificate">
+            <img src="IntroToCybersecurityCareers.png" alt="Intro To Cybersecurity Careers Certificate">
+            <img src="IntroToCyberSecurityEssentials.png" alt="Intro To Cybersecurity Essentials Certificate">
+            <img src="DataScienceMethodology.png" alt="Data Science Methodology Certificate">
+            <img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Network Security Certificate">
+            <img src="BasicCalculator.png" alt="Basic Calculator Certificate">
           </div>
-        </div>
-      </div>
     </section>
 
     <section class="section" id="badges">
       <h2>Leadership & Community Engagement</h2>
-      <div class="activities-grid">
-        <div class="activities-list">
-          <ul>
-            <li><strong>Orphanage Visit Volunteer</strong> -  Visited Edhi Center as part of social outreach initiative</li>
-            <li><strong>GirlUp STEM Participant</strong> - Active member promoting women in technology</li>
-            <li><strong>ACM Girls Fiesta Decor Team</strong> - Designed event spaces for 200+ attendees</li>
-            <li><strong>Cultural Society Department Head</strong> - Managed CS department activities and events</li>
-            <li><strong>Girls Cricket Match Organizer</strong> - Coordinated inter-department sports events</li>
-            <li><strong>BOWLD International Conference</strong> - Women's Day 2025 participant</li>
-            <li><strong>ACM Girls Fiesta Participant</strong> - Engaged in technical workshops and competitions</li>
-          </ul>
-        </div>
+        <ul>
+          <li><strong>Orphanage Visit Volunteer</strong> - Visited Edhi Center as part of social outreach initiative</li>
+          <li><strong>GirlUp STEM Participant</strong> - Active member promoting women in technology</li>
+          <li><strong>ACM Girls Fiesta Decor Team</strong> - Designed event spaces for 200+ attendees</li>
+          <li><strong>Cultural Society Department Head</strong> - Managed CS department activities and events</li>
+          <li><strong>Girls Cricket Match Organizer</strong> - Coordinated inter-department sports events</li>
+          <li><strong>BOWLD International Conference</strong> - Women's Day 2025 participant</li>
+          <li><strong>ACM Girls Fiesta Participant</strong> - Engaged in technical workshops and competitions</li>
+        </ul>
         
         <div class="slideshow">
-          <a href="#img55"><img src="OrphanageVisit.png" alt="Orphanage Visit"></a>
-          <a href="#img56"><img src="GirlupSTEM.jpg" alt="GirlUp STEM"></a>
-          <a href="#img57"><img src="DecorAcm.png" alt="ACM Decor Team"></a>
-          <a href="#img58"><img src="CulturalSociety.png" alt="Cultural Society"></a>
-          <a href="#img59"><img src="CricketOrganizer.png" alt="Cricket Organizer"></a>
-          <a href="#img60"><img src="Bowld.png" alt="Bowld Event"></a>
-          <a href="#img61"><img src="AcmGirlsFiesta.png" alt="ACM Girls Fiesta"></a>
-          <a href="#img62"><img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter"></a>
+          <img src="OrphanageVisit.png" alt="Orphanage Visit">
+          <img src="GirlupSTEM.jpg" alt="GirlUp STEM">
+          <img src="DecorAcm.png" alt="ACM Decor Team">
+          <img src="CulturalSociety.png" alt="Cultural Society">
+          <img src="CricketOrganizer.png" alt="Cricket Organizer">
+          <img src="Bowld.png" alt="Bowld Event">
+          <img src="AcmGirlsFiesta.png" alt="ACM Girls Fiesta">
+          <img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter">
         </div>
-      </div>
     </section>
 
     <section class="section" id="recommendations">
       <h2>Honors & Recommendations</h2>
-      <div class="recommendations-grid">
-        <div class="recommendations-list">
-          <ul>
-            <li><strong>GirlUp STEM Recommendation Letter</strong> - Recognized for leadership in women's tech initiatives</li>
-            <li><strong>ACM Appreciation Letter</strong> - Acknowledged for outstanding event organization</li>
-            <li><strong>CSS Promotion Certificate</strong> - Certified for advanced technical skills</li>
-            <li><strong>CUI Wah Recommendation Letter</strong> - By CDC Incharge Sir Mushtaq Ahmed Bhatti</li>
-            <li><strong>CodeAlpha Recommendation</strong> - For exceptional project contributions</li>
-          </ul>
-        </div>
+        <ul>
+          <li><strong>GirlUp STEM Recommendation Letter</strong> - Recognized for leadership in women's tech initiatives</li>
+          <li><strong>ACM Appreciation Letter</strong> - Acknowledged for outstanding event organization</li>
+          <li><strong>CSS Promotion Certificate</strong> - Certified for advanced technical skills</li>
+          <li><strong>CUI Wah Recommendation Letter</strong> - By CDC Incharge Sir Mushtaq Ahmed Bhatti</li>
+          <li><strong>CodeAlpha Recommendation</strong> - For exceptional project contributions</li>
+        </ul>
         
         <div class="slideshow">
-          <a href="#img63"><img src="girlup recommendation letter.jpg" alt="GirlUp Recommendation Letter"></a>
-          <a href="#img64"><img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter"></a>
-          <a href="#img65"><img src="css_promotion.png" alt="CSS Promotion"></a>
-          <a href="#img66"><img src="reccomendation letter.jpeg" alt="Recommendation Letter"></a>
-          <a href="#img67"><img src="codeaplha.png" alt="CodeAlpha Certificate"></a>
+          <img src="girlup recommendation letter.jpg" alt="GirlUp Recommendation Letter">
+          <img src="ACM appreciation letter.jpg" alt="ACM Appreciation Letter">
+          <img src="css_promotion.png" alt="CSS Promotion">
+          <img src="reccomendation letter.jpeg" alt="Recommendation Letter">
+          <img src="codeaplha.png" alt="CodeAlpha Certificate">
         </div>
-      </div>
     </section>
 
     <section class="section" id="ibm-badges">
       <h2>IBM Digital Badges</h2>
-      <ul>
-        <li>Cybersecurity Essentials</li>
-        <li>Data Science Methodology</li>
-        <li>Introduction to Cybersecurity Careers</li>
-        <li>Tools for Data Science v2</li>
-        <li>DataScience Orientation</li>
-      </ul>
-      <div class="slideshow">
-        <a href="#img68"><img src="badgecybersecurity-essentials.png" alt="Cybersecurity Essentials Badge"></a>
-        <a href="#img69"><img src="badgeDatasciencemethodology.png" alt="Data Science Methodology Badge"></a>
-        <a href="#img70"><img src="badgeintrotocybersecuritycareers.png" alt="Intro to Cybersecurity Careers Badge"></a>
-        <a href="#img71"><img src="badgetools-for-data-science-v2.png" alt="Tools for Data Science Badge"></a>
-        <a href="#img72"><img src="badgedata-science-orientation.png" alt="Data Science Orientation Badge"></a>
-      </div>
+        <ul>
+          <li>Cybersecurity Essentials</li>
+          <li>Data Science Methodology</li>
+          <li>Introduction to Cybersecurity Careers</li>
+          <li>Tools for Data Science v2</li>
+          <li>DataScience Orientation</li>
+        </ul>
+        <div class="slideshow">
+          <img src="badgecybersecurity-essentials.png" alt="Cybersecurity Essentials Badge">
+          <img src="badgeDatasciencemethodology.png" alt="Data Science Methodology Badge">
+          <img src="badgeintrotocybersecuritycareers.png" alt="Intro to Cybersecurity Careers Badge">
+          <img src="badgetools-for-data-science-v2.png" alt="Tools for Data Science Badge">
+          <img src="badgedata-science-orientation.png" alt="Data Science Orientation Badge">
+        </div>
     </section>
+
   </div>
 
-  <div id="img1" class="lightbox">
-  <a href="#" class="close-btn">&times;</a>
-  <img src="LiveNewsUpdte1.png" alt="Image 1">
-  <a href="#img2" class="next">&#10095;</a>
-</div>
-
-<div id="img2" class="lightbox">
-  <a href="#img1" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="LiveNewsUpdate2.png" alt="Image 2">
-  <a href="#img3" class="next">&#10095;</a>
-</div>
-
-<div id="img3" class="lightbox">
-  <a href="#img2" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="LiveNewsUpdate3.png" alt="Image 3">
-  <a href="#img4" class="next">&#10095;</a>
-</div>
-
-<div id="img4" class="lightbox">
-  <a href="#img3" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="LiveNewsUpdate4.png" alt="Image 4">
-  <a href="#img5" class="next">&#10095;</a>
-</div>
-
-<div id="img5" class="lightbox">
-  <a href="#img4" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="LiveNewsUpdate5.png" alt="Image 5">
-  <a href="#img6" class="next">&#10095;</a>
-</div>
-
-<div id="img6" class="lightbox">
-  <a href="#img5" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate1.png" alt="Image 6">
-  <a href="#img7" class="next">&#10095;</a>
-</div>
-
-<div id="img7" class="lightbox">
-  <a href="#img6" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate2.png" alt="Image 7">
-  <a href="#img8" class="next">&#10095;</a>
-</div>
-
-<div id="img8" class="lightbox">
-  <a href="#img7" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate3.png" alt="Image 8">
-  <a href="#img9" class="next">&#10095;</a>
-</div>
-
-<div id="img9" class="lightbox">
-  <a href="#img8" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate4.png" alt="Image 9">
-  <a href="#img10" class="next">&#10095;</a>
-</div>
-
-<div id="img10" class="lightbox">
-  <a href="#img9" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate5.png" alt="Image 10">
-  <a href="#img11" class="next">&#10095;</a>
-</div>
-
-<div id="img11" class="lightbox">
-  <a href="#img10" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate6.png" alt="Image 11">
-  <a href="#img12" class="next">&#10095;</a>
-</div>
-
-<div id="img12" class="lightbox">
-  <a href="#img11" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate7.png" alt="Image 12">
-  <a href="#img13" class="next">&#10095;</a>
-</div>
-
-<div id="img13" class="lightbox">
-  <a href="#img12" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="mindmate8.png" alt="Image 13">
-  <a href="#img14" class="next">&#10095;</a>
-</div>
-
-<div id="img14" class="lightbox">
-  <a href="#img13" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Redacted1.png" alt="Image 14">
-  <a href="#img15" class="next">&#10095;</a>
-</div>
-
-<div id="img15" class="lightbox">
-  <a href="#img14" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Redacted2.png" alt="Image 15">
-  <a href="#img16" class="next">&#10095;</a>
-</div>
-
-<div id="img16" class="lightbox">
-  <a href="#img15" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Redacted4.jpeg" alt="Image 16">
-  <a href="#img17" class="next">&#10095;</a>
-</div>
-
-<div id="img17" class="lightbox">
-  <a href="#img16" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Redacted5.jpeg" alt="Image 17">
-  <a href="#img18" class="next">&#10095;</a>
-</div>
-
-<div id="img18" class="lightbox">
-  <a href="#img17" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x5.png" alt="Image 18">
-  <a href="#img19" class="next">&#10095;</a>
-</div>
-
-<div id="img19" class="lightbox">
-  <a href="#img18" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x6.png" alt="Image 19">
-  <a href="#img20" class="next">&#10095;</a>
-</div>
-
-<div id="img20" class="lightbox">
-  <a href="#img19" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x7.png" alt="Image 20">
-  <a href="#img21" class="next">&#10095;</a>
-</div>
-
-<div id="img21" class="lightbox">
-  <a href="#img20" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x1.png" alt="Image 21">
-  <a href="#img22" class="next">&#10095;</a>
-</div>
-
-<div id="img22" class="lightbox">
-  <a href="#img21" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x2.png" alt="Image 22">
-  <a href="#img23" class="next">&#10095;</a>
-</div>
-
-<div id="img23" class="lightbox">
-  <a href="#img22" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x3.png" alt="Image 23">
-  <a href="#img24" class="next">&#10095;</a>
-</div>
-
-<div id="img24" class="lightbox">
-  <a href="#img23" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x4.png" alt="Image 24">
-  <a href="#img25" class="next">&#10095;</a>
-</div>
-
-<div id="img25" class="lightbox">
-  <a href="#img24" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x5.png" alt="Image 25">
-  <a href="#img26" class="next">&#10095;</a>
-</div>
-
-<div id="img26" class="lightbox">
-  <a href="#img25" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x6.png" alt="Image 26">
-  <a href="#img27" class="next">&#10095;</a>
-</div>
-
-<div id="img27" class="lightbox">
-  <a href="#img26" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="auth2x7.png" alt="Image 27">
-  <a href="#img28" class="next">&#10095;</a>
-</div>
-
-<div id="img28" class="lightbox">
-  <a href="#img27" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="login.png" alt="Image 28">
-  <a href="#img29" class="next">&#10095;</a>
-</div>
-
-<div id="img29" class="lightbox">
-  <a href="#img28" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="signup.png" alt="Image 29">
-  <a href="#img30" class="next">&#10095;</a>
-</div>
-
-<div id="img30" class="lightbox">
-  <a href="#img29" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ForgotPAssword.png" alt="Image 30">
-  <a href="#img31" class="next">&#10095;</a>
-</div>
-
-<div id="img31" class="lightbox">
-  <a href="#img30" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Dashboard.png" alt="Image 31">
-  <a href="#img32" class="next">&#10095;</a>
-</div>
-
-<div id="img32" class="lightbox">
-  <a href="#img31" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="addbooks.jpg" alt="Image 32">
-  <a href="#img33" class="next">&#10095;</a>
-</div>
-
-<div id="img33" class="lightbox">
-  <a href="#img32" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="addIssuer.jpg" alt="Image 33">
-  <a href="#img34" class="next">&#10095;</a>
-</div>
-
-<div id="img34" class="lightbox">
-  <a href="#img33" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="viewIssuedbooks.jpg" alt="Image 34">
-  <a href="#img35" class="next">&#10095;</a>
-</div>
-
-<div id="img35" class="lightbox">
-  <a href="#img34" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ViewBooks.jpg" alt="Image 35">
-  <a href="#img36" class="next">&#10095;</a>
-</div>
-
-<div id="img36" class="lightbox">
-  <a href="#img35" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="updatebook.jpg" alt="Image 36">
-  <a href="#img37" class="next">&#10095;</a>
-</div>
-
-<div id="img37" class="lightbox">
-  <a href="#img36" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="returnBook.jpg" alt="Image 37">
-  <a href="#img38" class="next">&#10095;</a>
-</div>
-
-<div id="img38" class="lightbox">
-  <a href="#img37" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Removebook.jpg" alt="Image 38">
-  <a href="#img39" class="next">&#10095;</a>
-</div>
-
-<div id="img39" class="lightbox">
-  <a href="#img38" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="searchbook.jpg" alt="Image 39">
-  <a href="#img40" class="next">&#10095;</a>
-</div>
-
-<div id="img40" class="lightbox">
-  <a href="#img39" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="database1.jpg" alt="Image 40">
-  <a href="#img41" class="next">&#10095;</a>
-</div>
-
-<div id="img41" class="lightbox">
-  <a href="#img40" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="database2.jpg" alt="Image 41">
-  <a href="#img42" class="next">&#10095;</a>
-</div>
-
-<div id="img42" class="lightbox">
-  <a href="#img41" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="database3.jpg" alt="Image 42">
-  <a href="#img43" class="next">&#10095;</a>
-</div>
-
-<div id="img43" class="lightbox">
-  <a href="#img42" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="WhatIsDataScience.png" alt="Image 43">
-  <a href="#img44" class="next">&#10095;</a>
-</div>
-
-<div id="img44" class="lightbox">
-  <a href="#img43" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ToolsForDataScience.png" alt="Image 44">
-  <a href="#img45" class="next">&#10095;</a>
-</div>
-
-<div id="img45" class="lightbox">
-  <a href="#img44" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ToolsOfTRade_linuxandsql.png" alt="Image 45">
-  <a href="#img46" class="next">&#10095;</a>
-</div>
-
-<div id="img46" class="lightbox">
-  <a href="#img45" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="python basic certificate hackerrank.jpg" alt="Image 46">
-  <a href="#img47" class="next">&#10095;</a>
-</div>
-
-<div id="img47" class="lightbox">
-  <a href="#img46" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ProgrammingForEveryBody.png" alt="Image 47">
-  <a href="#img48" class="next">&#10095;</a>
-</div>
-
-<div id="img48" class="lightbox">
-  <a href="#img47" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="problem solving certificate hackerrank.jpg" alt="Image 48">
-  <a href="#img49" class="next">&#10095;</a>
-</div>
-
-<div id="img49" class="lightbox">
-  <a href="#img48" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Java.png" alt="Image 49">
-  <a href="#img50" class="next">&#10095;</a>
-</div>
-
-<div id="img50" class="lightbox">
-  <a href="#img49" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="IntroToCybersecurityCareers.png" alt="Image 50">
-  <a href="#img51" class="next">&#10095;</a>
-</div>
-
-<div id="img51" class="lightbox">
-  <a href="#img50" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="IntroToCyberSecurityEssentials.png" alt="Image 51">
-  <a href="#img52" class="next">&#10095;</a>
-</div>
-
-<div id="img52" class="lightbox">
-  <a href="#img51" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="DataScienceMethodology.png" alt="Image 52">
-  <a href="#img53" class="next">&#10095;</a>
-</div>
-
-<div id="img53" class="lightbox">
-  <a href="#img52" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ConnectAndProtect_NetworkAndNetworkSecurity.png" alt="Image 53">
-  <a href="#img54" class="next">&#10095;</a>
-</div>
-
-<div id="img54" class="lightbox">
-  <a href="#img53" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="BasicCalculator.png" alt="Image 54">
-  <a href="#img55" class="next">&#10095;</a>
-</div>
-
-<div id="img55" class="lightbox">
-  <a href="#img54" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="OrphanageVisit.png" alt="Image 55">
-  <a href="#img56" class="next">&#10095;</a>
-</div>
-
-<div id="img56" class="lightbox">
-  <a href="#img55" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="GirlupSTEM.jpg" alt="Image 56">
-  <a href="#img57" class="next">&#10095;</a>
-</div>
-
-<div id="img57" class="lightbox">
-  <a href="#img56" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="DecorAcm.png" alt="Image 57">
-  <a href="#img58" class="next">&#10095;</a>
-</div>
-
-<div id="img58" class="lightbox">
-  <a href="#img57" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="CulturalSociety.png" alt="Image 58">
-  <a href="#img59" class="next">&#10095;</a>
-</div>
-
-<div id="img59" class="lightbox">
-  <a href="#img58" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="CricketOrganizer.png" alt="Image 59">
-  <a href="#img60" class="next">&#10095;</a>
-</div>
-
-<div id="img60" class="lightbox">
-  <a href="#img59" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="Bowld.png" alt="Image 60">
-  <a href="#img61" class="next">&#10095;</a>
-</div>
-
-<div id="img61" class="lightbox">
-  <a href="#img60" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="AcmGirlsFiesta.png" alt="Image 61">
-  <a href="#img62" class="next">&#10095;</a>
-</div>
-
-<div id="img62" class="lightbox">
-  <a href="#img61" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ACM appreciation letter.jpg" alt="Image 62">
-  <a href="#img63" class="next">&#10095;</a>
-</div>
-
-<div id="img63" class="lightbox">
-  <a href="#img62" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="girlup recommendation letter.jpg" alt="Image 63">
-  <a href="#img64" class="next">&#10095;</a>
-</div>
-
-<div id="img64" class="lightbox">
-  <a href="#img63" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="ACM appreciation letter.jpg" alt="Image 64">
-  <a href="#img65" class="next">&#10095;</a>
-</div>
-
-<div id="img65" class="lightbox">
-  <a href="#img64" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="css_promotion.png" alt="Image 65">
-  <a href="#img66" class="next">&#10095;</a>
-</div>
-
-<div id="img66" class="lightbox">
-  <a href="#img65" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="reccomendation letter.jpeg" alt="Image 66">
-  <a href="#img67" class="next">&#10095;</a>
-</div>
-
-<div id="img67" class="lightbox">
-  <a href="#img66" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="codeaplha.png" alt="Image 67">
-  <a href="#img68" class="next">&#10095;</a>
-</div>
-
-<div id="img68" class="lightbox">
-  <a href="#img67" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="badgecybersecurity-essentials.png" alt="Image 68">
-  <a href="#img69" class="next">&#10095;</a>
-</div>
-
-<div id="img69" class="lightbox">
-  <a href="#img68" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="badgeDatasciencemethodology.png" alt="Image 69">
-  <a href="#img70" class="next">&#10095;</a>
-</div>
-
-<div id="img70" class="lightbox">
-  <a href="#img69" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="badgeintrotocybersecuritycareers.png" alt="Image 70">
-  <a href="#img71" class="next">&#10095;</a>
-</div>
-
-<div id="img71" class="lightbox">
-  <a href="#img70" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="badgetools-for-data-science-v2.png" alt="Image 71">
-  <a href="#img72" class="next">&#10095;</a>
-</div>
-
-<div id="img72" class="lightbox">
-  <a href="#img71" class="prev">&#10094;</a>
-  <a href="#" class="close-btn">&times;</a>
-  <img src="badgedata-science-orientation.png" alt="Image 72">
-</div>
+  <div id="general-lightbox" class="lightbox" tabindex="-1">
+    <a href="javascript:void(0)" class="close-btn">&times;</a>
+    <img src="" alt="" id="lightbox-img">
+    <a href="javascript:void(0)" class="prev">&#10094;</a>
+    <a href="javascript:void(0)" class="next">&#10095;</a>
+  </div>
 
   <footer>
     <div class="footer-content">
@@ -1669,159 +1234,208 @@
     </div>
   </footer>
 
-  <a href="#" class="back-to-top" id="backToTop">
+  <a href="#" class="back-to-top">
     <i class="fas fa-arrow-up"></i>
   </a>
 
   <script>
-    // Back to top button functionality
-    window.addEventListener('scroll', function() {
-      var backToTop = document.getElementById('backToTop');
-      if (window.pageYOffset > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section');
+      const backToTopButton = document.querySelector('.back-to-top');
+      const generalLightbox = document.getElementById('general-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const prevBtn = generalLightbox.querySelector('.prev');
+      const nextBtn = generalLightbox.querySelector('.next');
+      let currentImages = []; // Stores images of the current slideshow
+      let currentImageIndex = -1;
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      // Function to update active nav link on scroll
+      const updateActiveNavLink = () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 150; 
+          const sectionHeight = section.clientHeight;
+          if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+          }
+        });
+
+        // Show/hide back to top button
+        if (pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      };
+
+      window.addEventListener('scroll', updateActiveNavLink);
+      updateActiveNavLink(); // Initial call
+
+      // Smooth scrolling for nav links
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 80, // Adjust for fixed nav height
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Lightbox functionality
+      document.querySelectorAll('.slideshow img').forEach((img, index) => {
+        img.addEventListener('click', function() {
+          generalLightbox.classList.add('visible');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+          const parentSlideshow = this.closest('.slideshow');
+          currentImages = Array.from(parentSlideshow.querySelectorAll('img'));
+          currentImageIndex = currentImages.indexOf(this);
+
+          updateLightboxImage();
+        });
+      });
+
+      function updateLightboxImage() {
+        if (currentImages.length > 0 && currentImageIndex !== -1) {
+          const img = currentImages[currentImageIndex];
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+        }
+      }
+
+      // Close lightbox
+      generalLightbox.addEventListener('click', function(e) {
+        if (e.target === generalLightbox || e.target.classList.contains('close-btn')) {
+          closeLightbox();
+        }
+      });
+
+      function closeLightbox() {
+        generalLightbox.classList.remove('visible');
+        document.body.style.overflow = ''; // Restore scrolling
+        currentImages = [];
+        currentImageIndex = -1;
+      }
+
+      // Prev/Next buttons
+      prevBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
+        if (currentImages.length > 0) {
+          currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+          updateLightboxImage();
+        }
+      });
+
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentImages.length > 0) {
+          currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+          updateLightboxImage();
+        }
+            });
+
+      // Keyboard navigation for lightbox
+      document.addEventListener('keydown', function(e) {
+        if (generalLightbox.classList.contains('visible')) {
+          if (e.key === 'Escape') {
+            closeLightbox();
+          } else if (e.key === 'ArrowLeft') {
+            prevBtn.click();
+          } else if (e.key === 'ArrowRight') {
+            nextBtn.click();
+          }
+        }
+      });
+
+      // Back to top button
+      backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
           behavior: 'smooth'
         });
-        
-        // Update active nav link
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('active');
-        });
-        this.classList.add('active');
       });
-    });
 
-    // Lightbox navigation
-    document.addEventListener('keydown', function(e) {
-      const lightbox = document.querySelector('.lightbox:target');
-      if (!lightbox) return;
-      
-      const prev = lightbox.querySelector('.prev');
-      const next = lightbox.querySelector('.next');
-      const close = lightbox.querySelector('.close-btn');
-      
-      switch(e.key) {
-        case 'ArrowLeft':
-          if (prev) prev.click();
-          break;
-        case 'ArrowRight':
-          if (next) next.click();
-          break;
-        case 'Escape':
-          if (close) close.click();
-          break;
+      // Animation on scroll
+      const animateOnScroll = () => {
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (sectionTop < windowHeight - 100) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+          }
+        });
+      };
+
+      // Initialize sections with hidden state
+      sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      });
+
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Initial check
+
+      // Smooth hover effects for header pic
+      const headerPic = document.querySelector('.header-pic');
+      if (headerPic) {
+        headerPic.addEventListener('mouseenter', () => {
+          headerPic.querySelector('img').style.transform = 'scale(1.05)';
+        });
+        
+        headerPic.addEventListener('mouseleave', () => {
+          headerPic.querySelector('img').style.transform = 'scale(1)';
+        });
       }
+
+      // Mobile nav toggle (for smaller screens)
+      const mobileNavToggle = document.createElement('div');
+      mobileNavToggle.className = 'mobile-nav-toggle';
+      mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      mobileNavToggle.style.display = 'none';
+      document.body.appendChild(mobileNavToggle);
+
+      const navContainer = document.querySelector('.nav-container');
+      
+      const toggleMobileNav = () => {
+        if (window.innerWidth <= 576) {
+          mobileNavToggle.style.display = 'flex';
+          navContainer.style.display = 'none';
+        } else {
+          mobileNavToggle.style.display = 'none';
+          navContainer.style.display = 'flex';
+        }
+      };
+
+      mobileNavToggle.addEventListener('click', () => {
+        if (navContainer.style.display === 'none' || !navContainer.style.display) {
+          navContainer.style.display = 'flex';
+          mobileNavToggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          navContainer.style.display = 'none';
+          mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+
+      window.addEventListener('resize', toggleMobileNav);
+      toggleMobileNav(); // Initial check
     });
   </script>
-  <script>
-  document.getElementById('backToTop').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-</script>
-<script>
-// Back to top button functionality
-window.addEventListener('scroll', function() {
-  var backToTop = document.getElementById('backToTop');
-  if (window.pageYOffset > 300) {
-    backToTop.classList.add('visible');
-  } else {
-    backToTop.classList.remove('visible');
-  }
-});
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  if (!anchor.classList.contains('prev') && !anchor.classList.contains('next')) {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-      
-      // Update active nav link
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      this.classList.add('active');
-    });
-  }
-});
-
-// Lightbox navigation
-document.addEventListener('keydown', function(e) {
-  const lightbox = document.querySelector('.lightbox:target');
-  if (!lightbox) return;
-  
-  const prev = lightbox.querySelector('.prev');
-  const next = lightbox.querySelector('.next');
-  const close = lightbox.querySelector('.close-btn');
-  
-  switch(e.key) {
-    case 'ArrowLeft':
-      if (prev) prev.click();
-      break;
-    case 'ArrowRight':
-      if (next) next.click();
-      break;
-    case 'Escape':
-      if (close) close.click();
-      break;
-  }
-});
-
-// Handle lightbox clicks
-document.querySelectorAll('.slideshow a[href^="#img"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = this.getAttribute('href');
-    window.location.hash = target;
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-// Close lightbox when clicking outside image or on close button
-document.querySelectorAll('.lightbox').forEach(lb => {
-  lb.addEventListener('click', function(e) {
-    if (e.target === this || e.target.classList.contains('close-btn')) {
-      window.location.hash = '#';
-      document.body.style.overflow = '';
-    }
-  });
-});
-
-// Handle prev/next clicks - this is the key fix
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('prev') || e.target.classList.contains('next')) {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const currentImg = window.location.hash.replace('#img', '');
-    let imgNumber = parseInt(currentImg);
-    
-    if (e.target.classList.contains('prev')) {
-      imgNumber = imgNumber > 1 ? imgNumber - 1 : 72;
-    } else {
-      imgNumber = imgNumber < 72 ? imgNumber + 1 : 1;
-    }
-    
-    window.location.hash = `#img${imgNumber}`;
-  }
-});
-</script>
 </body>
 </html>
